@@ -1,0 +1,148 @@
+.Pagination {
+	display: flex;
+	justify-content: space-between;
+	padding: 1rem 0;
+	align-items: center;
+
+	position: relative;
+	padding: 1rem 0;
+
+	.info {
+		white-space: nowrap;
+		color: #0c3450;
+	}
+
+	.pageCountSelector {
+		white-space: nowrap;
+		position: relative;
+		label {
+			color: #575757;
+			padding-right: 1rem;
+			line-height: 2.4rem;
+		}
+
+		select {
+			position: relative;
+			z-index: 1;
+			background: none;
+			border: 0;
+			appearance: none;
+
+			font-family: inherit;
+			color: #575757;
+			font-size: 1.3rem;
+
+			padding-left: 0.5rem;
+			padding-right: 2rem;
+
+			line-height: 2.2rem;
+
+			border: 1px solid #aaa;
+			border-radius: 4px;
+
+			cursor: pointer;
+
+			outline: none;
+		}
+		&::after {
+			content: "";
+			display: block;
+			border-color: #888 transparent transparent transparent;
+			border-style: solid;
+			border-width: 5px 4px 0 4px;
+
+			position: absolute;
+			z-index: 0;
+			right: 8px;
+			top: 50%;
+
+			margin-top: -2.5px;
+		}
+	}
+
+	.paginator {
+		min-width: 322px;
+		.dataTables {
+			display: flex;
+			.numbers {
+				background-color: #4592b0;
+				&:hover {
+					background-color: #4592b0;
+					cursor: initial;
+				}
+			}
+			button {
+				margin: 0 0.3rem;
+				border: #b6bfc9 1px solid;
+				border-radius: 0.3rem;
+				width: 3rem;
+				height: 2.8rem;
+				line-height: 2.4rem;
+				transition: all 0.3s;
+
+				background: transparent;
+				background-size: 1.2rem 1.2rem;
+				background-repeat: no-repeat;
+				background-position: center center;
+				cursor: pointer;
+
+				outline: none;
+
+				&:hover {
+					background-color: #e5f1f5;
+				}
+			}
+
+			.firstPage {
+				background-image: url(../../../assets/svg/pagination/paging-first-icon.svg);
+			}
+			.previousPage {
+				background-image: url(../../../assets/svg/pagination/paging-previous-icon.svg);
+			}
+			.nextPage {
+				background-image: url(../../../assets/svg/pagination/paging-next-icon.svg);
+			}
+			.lastPage {
+				background-image: url(../../../assets/svg/pagination/paging-last-icon.svg);
+			}
+		}
+	}
+
+	.goTo {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		input {
+			width: 6rem;
+			height: 2.6rem;
+			padding: 0 0.4rem;
+			line-height: 2.6rem;
+			text-align: center;
+
+			border-radius: 0.3rem;
+			color: #575757;
+			background-color: #fff;
+			border: 1px solid #b6bfc9;
+			outline: none;
+			transition: all 0.3s;
+
+			margin-left: 0.5rem;
+		}
+
+		button {
+			display: inline-block;
+			height: 2.6rem;
+			min-width: 0;
+			padding: 0 0.8rem;
+			line-height: 2.6rem;
+
+			overflow: hidden;
+			background-color: transparent;
+			border: 0;
+			cursor: pointer;
+
+			outline: none;
+		}
+	}
+}

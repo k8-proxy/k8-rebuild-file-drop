@@ -1,0 +1,128 @@
+.FileInfo {
+	overflow: hidden;
+
+	header {
+		display: flex;
+		justify-content: space-between;
+
+		width: 100%;
+		min-height: 4rem;
+
+		padding: 1rem;
+
+		color: #196480;
+		background: #e6e9ea;
+
+		div {
+			display: flex;
+		}
+
+		h2 {
+			margin: 0;
+			padding: 0;
+		}
+
+		span {
+			padding: 0.5rem 1.5rem;
+			margin-right: 5rem;
+
+			text-transform: uppercase;
+
+			color: #fff;
+
+			border-radius: 15px;
+		}
+
+		.buttonClose {
+			position: relative;
+		}
+	}
+
+	.inner {
+		position: relative;
+		padding: 3rem 1rem;
+		display: flex;
+		flex-direction: column;
+
+		.block {
+			position: relative;
+
+			margin-bottom: 1.5rem;
+			padding: 1rem;
+
+			border: 1px solid #b6bfc9;
+			border-radius: 0.6rem;
+			overflow: hidden;
+
+			transition: 0.5s all;
+
+			.badge {
+				position: absolute;
+				top: 1rem;
+				right: 1rem;
+				margin-right: 4rem;
+			}
+
+			h3 {
+				margin: 0 0 1rem 0;
+				padding: 0;
+				line-height: 2rem;
+			}
+			.wrapArrow {
+				position: absolute;
+				top: 0rem;
+				right: 4rem;
+				width: 100%;
+				height: 4rem;
+
+				label {
+					width: 100%;
+					height: 100%;
+				}
+			}
+
+			.arrow::before {
+				content: "";
+				position: absolute;
+				top: 0.5rem;
+				width: 2rem;
+				height: 2rem;
+
+				background-repeat: no-repeat;
+				background-position: center center;
+				background-image: url("../../../assets/svg/filters/expand-arrow-grey.svg");
+				transition: all 0.3s;
+			}
+
+			.arrow.rotate::before {
+				transform: rotate(-90deg);
+				transition: all 0.3s;
+			}
+		}
+	}
+
+	.buttonClose {
+		margin-right: 1rem;
+	}
+
+	.table {
+		border-top: 1px solid #b6bfc9;
+
+		thead th {
+			position: relative;
+
+			padding: 1rem;
+
+			font-size: 1.2rem;
+			color: #196480;
+		}
+		tbody {
+			tr:last-child {
+				border-bottom: 1px solid #54e0e8;
+			}
+			td {
+				font-size: 1.2rem;
+			}
+		}
+	}
+}

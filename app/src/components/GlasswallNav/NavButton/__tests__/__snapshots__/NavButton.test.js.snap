@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavButton_Snapshot 1`] = `
+<li>
+  <button
+    className="button selected"
+    onClick={[Function]}
+  />
+</li>
+`;

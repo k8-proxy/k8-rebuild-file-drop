@@ -1,0 +1,13 @@
+.Filter {
+	margin-bottom: 3rem;
+	border-top: 1px solid #e6e9ea;
+
+	& legend {
+		color: #196480;
+		font-size: 1.4rem;
+	}
+}
+
+.formGroup {
+	flex-direction: row;
+}

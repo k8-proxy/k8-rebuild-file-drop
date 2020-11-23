@@ -1,0 +1,32 @@
+.FileAttributes {
+	width: 100%;
+
+	border: 0.1rem solid #a1b5bf;
+	border-radius: 0.6rem;
+	background-color: white;
+	overflow: hidden;
+
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+
+	& .header {
+		display: block;
+		background-color: #aebcc2;
+		text-align: center;
+		text-transform: uppercase;
+		letter-spacing: 0.1rem;
+		font-size: 1.8rem;
+		color: white;
+		padding: 1.2rem 1rem;
+		margin: 0;
+	}
+
+	& .table {
+		width: 100%;
+		border-collapse: separate;
+		padding: 0.6rem 1rem;
+		line-height: 2.6rem;
+		text-align: left;
+		font-size: 1.6rem;
+	}
+}

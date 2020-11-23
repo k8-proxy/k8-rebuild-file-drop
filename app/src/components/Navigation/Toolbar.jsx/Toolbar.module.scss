@@ -1,0 +1,91 @@
+.Toolbar {
+	position: absolute;
+	float: left;
+	top: 0;
+
+	width: 7rem;
+	height: 100%;
+
+	padding-bottom: 7rem;
+
+	letter-spacing: 0.2rem;
+	background: #1b5c7e;
+	background: linear-gradient(to top, #196480, #0c3450);
+	font-family: "robotoregular", sans-serif;
+	overflow: hidden;
+	transition: all 300ms ease-out;
+
+	.logo {
+		position: absolute;
+		width: 100%;
+		height: 8rem;
+		opacity: 0;
+		animation: logo 500ms 300ms ease forwards;
+	}
+
+	.linkList {
+		position: absolute;
+		opacity: 0;
+		animation: links 300ms 300ms ease-out forwards;
+	}
+
+	.user {
+		position: absolute;
+		left: 0;
+		bottom: 0rem;
+	}
+
+	&.expanded {
+		width: 24rem;
+	}
+}
+
+.popup {
+	bottom: 12rem;
+	left: 1.5rem;
+
+	& button {
+		padding-left: 5rem;
+	}
+}
+
+.openPopupEnterActive {
+	animation: popup 300ms ease-out forwards;
+}
+
+.closePopupExitActive {
+	animation: popup 300ms ease-out alternate-reverse forwards;
+}
+
+@keyframes logo {
+	from {
+		top: 0;
+		opacity: 0;
+	}
+	to {
+		top: 3rem;
+		opacity: 1;
+	}
+}
+
+@keyframes links {
+	from {
+		top: 17rem;
+		opacity: 0;
+	}
+	to {
+		top: 14rem;
+		opacity: 1;
+	}
+}
+
+@keyframes popup {
+	from {
+		bottom: 11rem;
+		opacity: 0;
+	}
+	to {
+		bottom: 12rem;
+		opacity: 1;
+	}
+}

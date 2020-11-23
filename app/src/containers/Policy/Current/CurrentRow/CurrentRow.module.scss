@@ -1,0 +1,11 @@
+.CurrentRow {
+	display: flex;
+	flex-wrap: wrap;
+
+	padding: 2rem 0;
+	background-color: #e6e9ea;
+
+	& h2 {
+		font-size: 1rem;
+	}
+}

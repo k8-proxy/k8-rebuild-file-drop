@@ -1,0 +1,28 @@
+.overlay {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(82, 109, 122, 0.8);
+	opacity: 1;
+	transition: all 0.5s;
+	z-index: 30;
+}
+
+.container {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 94vw;
+	height: 55rem;
+	max-width: 70rem;
+	min-height: 43rem;
+	overflow: hidden;
+	background-color: #fff;
+	opacity: 1;
+	border-radius: 0.6rem;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
+	transform: translate(-50%, -50%);
+	transition: 0.5s all;
+}

@@ -1,0 +1,50 @@
+.RequestHistory {
+	background: #e6e9ea;
+}
+
+.wrapTable {
+	height: 100vh;
+	padding: 2rem;
+
+	background: #ffffff;
+
+	border: 1px solid #b6bfc9;
+	border-radius: 0.6rem;
+	transition: all 0.5s;
+
+	&.notActive {
+		opacity: 0.5;
+		filter: blur(0.2rem);
+		pointer-events: none;
+		transition: all 0.5s;
+	}
+}
+
+.table {
+	th {
+		height: 4rem;
+		font-size: 1.2rem;
+		padding: 0;
+
+		border: none;
+	}
+
+	thead th {
+		position: relative;
+		color: #0c3450;
+
+		cursor: pointer;
+
+		.icon {
+			position: absolute;
+			top: 0.5rem;
+			right: 6rem;
+
+			width: 3rem;
+		}
+	}
+
+	tbody {
+		border-top: 1px solid #4592b0;
+	}
+}

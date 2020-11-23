@@ -1,0 +1,41 @@
+.routes {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+
+	//margin: 1rem 2rem 2rem 2rem;
+
+	//border: 1px solid #b6bfc9;
+	//border-radius: 0.6rem;
+
+	margin-top: 2rem;
+	overflow: hidden;
+
+	.head {
+		border-bottom: 1px solid #b6bfc9;
+	}
+
+	& p {
+		padding: 2rem 10rem;
+	}
+
+	& .table {
+		padding: 1rem 1rem 4rem 1rem;
+
+		& .th {
+			display: flex;
+			justify-content: space-between;
+			color: #196480;
+
+			p {
+				padding-left: 1rem;
+				width: 100%;
+			}
+
+			& p:last-child {
+				width: 14rem;
+				padding-left: 3rem;
+			}
+		}
+	}
+}

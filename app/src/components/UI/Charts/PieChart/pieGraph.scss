@@ -1,0 +1,30 @@
+.safe,
+.blocked,
+.dangerous,
+.unclassified {
+	stroke: #ffffff;
+	stroke-width: 3px;
+}
+
+.safe {
+	fill: #7394ca;
+}
+
+.blocked {
+	fill: #e1974e;
+	stroke: #ffffff;
+}
+
+.dangerous {
+	fill: #818787;
+	stroke: #ffffff;
+}
+
+.unclassified {
+	fill: #ccc374;
+	stroke: #ffffff;
+}
+
+.ct-label {
+	font-size: 3rem;
+}

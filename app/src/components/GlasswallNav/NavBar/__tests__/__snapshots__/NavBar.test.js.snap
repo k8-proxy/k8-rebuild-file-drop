@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar_Snapshot 1`] = `
+<div
+  className="navBar expanded"
+/>
+`;

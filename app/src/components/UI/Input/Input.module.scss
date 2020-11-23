@@ -1,0 +1,25 @@
+.Input {
+	width: 100%;
+
+	input {
+		position: relative;
+		width: 100%;
+		height: 40px;
+
+		background: rgba(255, 255, 255, 0.2);
+		color: white;
+		border: none;
+		border-radius: 6px;
+
+		background-repeat: no-repeat;
+		background-position: 0 center;
+
+		outline: none;
+
+		&::placeholder {
+			text-transform: uppercase;
+			opacity: 0.2;
+			color: white;
+		}
+	}
+}

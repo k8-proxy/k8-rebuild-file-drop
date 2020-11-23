@@ -1,0 +1,27 @@
+.Tab {
+	width: calc(100% - 4rem);
+	height: calc(100% - 2rem);
+
+	//border-radius: 0.6rem;
+	//border: 1px solid #b6bfc9;
+	//border-radius: 0.6rem;
+
+	.innerContent {
+		height: 100%;
+
+		opacity: 1;
+		background: #ffffff;
+		border-radius: 0.6rem;
+
+		transition: opacity 500ms ease-in-out;
+	}
+}
+
+@keyframes changeTab {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}

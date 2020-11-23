@@ -1,0 +1,14 @@
+{
+    "file-too-large": "This free service is currently limited to a maximum file size of 3.5MB",
+    "file-invalid-type": "Please use a supported file type",
+    "unable-to-protect": "Unable to protect file due to structural issues",
+    "file-is-ready": "Your Safe, Regenerated File Is Ready",
+    "httpCodes": {
+        "422": "Please use a supported file type",
+        "400": "Wrong file format"
+    },
+    "toasterAppearance": {
+        "422": "warning",
+        "400": "warning"
+    }
+}
