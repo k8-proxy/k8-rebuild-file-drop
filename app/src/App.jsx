@@ -25,9 +25,6 @@ import Policy from "./containers/Policy/Policy";
 import Analytics from "./containers/Analytics/Analytics";
 import FileDrop from "./containers/FileDrop/FileDrop";
 
-// TODO: Remove from production, for prototype only
-import Sow from "./components/Sow/Sow";
-
 const App = () => {
 	const [navExpanded, setNavExpanded] = useState(true);
 	const { isAuth } = useContext(AuthContext);
@@ -57,8 +54,6 @@ const App = () => {
 								>
 									<Auth>
 										<Switch location={location}>
-											(// TODO: Remove from production, for prototype only)
-											<Route path="/sow" component={Sow} />
 											<Route path="/pass-reminder" component={PassReminder} />
 											<Route path="/" component={Login} exact />
 											<Redirect to="/" />

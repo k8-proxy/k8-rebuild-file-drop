@@ -62,9 +62,6 @@ const Login = () => {
 				<p className={classes.rePassLink}>
 					<Link data-test-id="linkForgottenPassword" to={"/pass-reminder"}>Forgotten your password?</Link>
 				</p>
-				<p className={classes.rePassLink}>
-					<Link to={"/sow"}>SOW Checklist</Link>
-				</p>
 			</section>
 		</>
 	);
