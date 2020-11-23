@@ -11,17 +11,18 @@ import { ExpandButton } from "../ExpandButton/ExpandButton";
 import UserLink from "../../UI/UserLink/UserLink";
 import Popup from "../../UI/Popup/Popup";
 
-import usersIcon from "../../../assets/menu-icons/icon-users.svg";
+// import usersIcon from "../../../assets/menu-icons/icon-users.svg";
 import fileDoropIcon from "../../../assets/menu-icons/icon-file-drop.svg";
-import policy from "../../../assets/menu-icons/icon-policies.svg";
-import transactionIcon from "../../../assets/menu-icons/icon-transactions.svg";
-import dashIcon from "../../../assets/menu-icons/icon-dashboard.svg";
+// import policy from "../../../assets/menu-icons/icon-policies.svg";
+// import transactionIcon from "../../../assets/menu-icons/icon-transactions.svg";
+// import dashIcon from "../../../assets/menu-icons/icon-dashboard.svg";
 
 import logoutIcon from "../../../assets/svg/account-icons/logout-icon.svg";
 import changePassIcon from "../../../assets/svg/account-icons/change-password-icon.svg";
 import ChangePassword from "../../ChangePassword/ChangePassword";
 
 const navLinks = [
+/*
 	{
 		link: "/analytics",
 		name: "Analytics",
@@ -46,8 +47,9 @@ const navLinks = [
 		testId: "navLinkPolicy"
 	},
 	{ link: "/users", name: "Users", icon: usersIcon, id: "id-4" },
+*/
 	{
-		link: "/file-drop",
+		link: "/",
 		name: "File drop",
 		icon: fileDoropIcon,
 		id: "id-5",

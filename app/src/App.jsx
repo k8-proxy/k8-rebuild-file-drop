@@ -19,10 +19,11 @@ import Main from "./hoc/Main/Main";
 import Toolbar from "./components/Navigation/Toolbar.jsx/Toolbar";
 import Login from "./components/Login/Login";
 import PassReminder from "./components/PassReminder/PassReminder";
-import Users from "./containers/Users/Users";
-import RequestHistory from "./containers/RequestHistory/RequestHistory";
-import Policy from "./containers/Policy/Policy";
-import Analytics from "./containers/Analytics/Analytics";
+// import Users from "./containers/Users/Users";
+// import RequestHistory from "./containers/RequestHistory/RequestHistory";
+// import Policy from "./containers/Policy/Policy";
+// import Analytics from "./containers/Analytics/Analytics";
+
 import FileDrop from "./containers/FileDrop/FileDrop";
 
 const App = () => {
@@ -82,6 +83,7 @@ const App = () => {
 									>
 										<Main showTitle title={title} expanded={navExpanded}>
 											<Switch location={location}>
+{/*
 												<Route path="/analytics" component={Analytics} />
 												<Route
 													path="/request-history"
@@ -90,13 +92,18 @@ const App = () => {
 												<Route path="/request-history">
 													<div>Request history</div>
 												</Route>
-												<Route path="/file-drop" component={FileDrop} />
+*/}
+												<Route path="/" component={FileDrop}/>
+{/*
 												<Route path="/policy" component={Policy} />
 
 												<Route path="/users" component={Users} />
+*/}
+{/*
 												<Route path="/">
 													<div>Home</div>
 												</Route>
+*/}
 												<Redirect to="/" />
 											</Switch>
 										</Main>
