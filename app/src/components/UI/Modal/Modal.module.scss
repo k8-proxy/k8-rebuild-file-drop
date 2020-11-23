@@ -1,0 +1,26 @@
+.Modal {
+	position: fixed;
+	z-index: 1000;
+
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	width: 90%;
+	height: 90%;
+
+	background: #ffffff;
+
+	border: 1px solid #b6bfc9;
+	border-radius: 0.6rem;
+	box-shadow: 0 3px 16px 1.6px rgba(0, 0, 0, 0.34);
+	transition: 0.5s all;
+
+	overflow: hidden;
+
+	& .buttonClose {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+	}
+}

@@ -1,0 +1,38 @@
+.NavigationItems {
+	height: calc(100% - 19rem);
+	width: 100%;
+
+	p {
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	transition: all 0s 300ms;
+
+	&.menuExpanded {
+		display: block;
+
+		width: 100%;
+
+		opacity: 1;
+		visibility: visible;
+		transition: visibility 0s 300ms;
+
+		p {
+			opacity: 1;
+			visibility: visible;
+			transition: visibility 0s 300ms;
+		}
+	}
+
+	ul {
+		height: 100%;
+	}
+}
+
+.bottom {
+	position: absolute;
+	height: auto;
+	bottom: 5rem;
+	width: 100%;
+}

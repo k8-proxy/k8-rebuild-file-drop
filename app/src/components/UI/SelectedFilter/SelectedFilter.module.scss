@@ -1,0 +1,54 @@
+.SelectedFilter {
+	display: inline-block;
+
+	border: 1px solid #b6bfc9;
+	border-radius: 0.4rem;
+
+	margin: 0.3rem 0rem 0.5rem 1rem;
+
+	& .header {
+		position: relative;
+		display: flex;
+		justify-content: center;
+
+		width: 100%;
+
+		padding: 1rem 3rem;
+
+		text-transform: uppercase;
+		line-height: 1rem;
+
+		background-color: #fff;
+		border-radius: 0.4rem 0.4rem 0 0;
+		& h3 {
+			margin: 0;
+
+			font-size: 1.3rem;
+		}
+	}
+
+	& .footer {
+		text-align: center;
+		padding: 1rem 2rem;
+
+		line-height: 1rem;
+	}
+}
+
+.buttonClose {
+	top: 5px;
+	right: 0;
+	& svg {
+		width: 1rem;
+		fill: #b6bfc9;
+	}
+}
+
+.risk {
+	color: #fff;
+	text-transform: uppercase;
+	& span {
+		padding: 0.1rem 1rem;
+		border-radius: 1rem;
+	}
+}

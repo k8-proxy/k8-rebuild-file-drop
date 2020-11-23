@@ -1,0 +1,40 @@
+.PolicyForNonCompliantFiles {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+
+	//margin: 1rem 2rem 2rem 2rem;
+
+	//border: 1px solid #b6bfc9;
+	//border-radius: 0.6rem;
+
+	overflow: hidden;
+}
+
+.head {
+	border-bottom: 1px solid #b6bfc9;
+}
+
+.info {
+	display: flex;
+	justify-content: space-between;
+	width: 97rem;
+
+	margin: 0 auto;
+
+	padding: 10rem 0;
+
+	div {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}
+.wrapBlocksToggle {
+	padding: 1rem;
+}
+
+.blockToggleHead {
+	color: #163e3f;
+	padding-left: 1rem;
+}

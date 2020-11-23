@@ -1,0 +1,88 @@
+.Users {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background: #edf0f1;
+
+	border-radius: 0.6rem;
+
+	border: 1px solid #b6bfc9;
+	border-radius: 0.6rem;
+
+	.wrap {
+		width: 100%;
+		height: 100%;
+		border: 1px solid #b6bfc9;
+		border-radius: 0.6rem;
+	}
+}
+.head {
+	text-transform: uppercase;
+	margin: 0;
+	padding-left: 1rem;
+	font-size: 1.4rem;
+	line-height: 4rem;
+
+	border-bottom: 1px solid #b6bfc9;
+}
+
+.block {
+	padding: 1rem 1.4rem;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+
+	width: 100%;
+	padding: 0 2rem;
+
+	border-bottom: 1px solid #b6bfc9;
+
+	& p {
+		margin: 0;
+		padding-left: 1rem;
+		text-transform: uppercase;
+		line-height: 4rem;
+	}
+
+	button {
+		border: 0;
+		outline: none;
+		background: none;
+		font-size: 3rem;
+		color: #498fa7;
+	}
+}
+
+.table {
+	thead th {
+		position: relative;
+
+		padding: 1rem;
+
+		font-size: 1.2rem;
+		color: #0c3450;
+		border: none;
+	}
+	tbody {
+		border-top: 1px solid #4592b0;
+
+		tr:last-child {
+			border-bottom: 1px solid #4592b0;
+		}
+
+		td:last-child {
+			//display: flex;
+			width: 10%;
+			white-space: nowrap;
+			//background: red;
+		}
+	}
+
+	input {
+		margin: 0;
+		height: 3rem;
+		margin-left: 2rem;
+	}
+}

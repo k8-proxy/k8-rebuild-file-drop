@@ -1,0 +1,19 @@
+.HistoryRow {
+	height: 4rem;
+
+	margin-left: 1rem;
+
+	cursor: pointer;
+
+	transition: background 0.2s ease-in-out;
+	border-bottom: 1px solid #b6bfc9;
+
+	&:hover {
+		transition: background 0.2s ease-in-out;
+		background: #e6e9ea;
+	}
+}
+
+.HistoryRow:last-child {
+	border: none;
+}

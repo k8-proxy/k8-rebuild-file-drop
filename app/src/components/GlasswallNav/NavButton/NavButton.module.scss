@@ -1,0 +1,28 @@
+.button {
+	position: relative;
+	width: 100%;
+	height: 4.4rem;
+	border: none;
+	border-bottom: hsla(255, 100%, 100%, 0.2) solid 1px;
+	background: transparent;
+	font-size: 1.6rem;
+	color: #fff;
+	text-align: center;
+	transition: all 0.3s;
+	outline: none;
+	cursor: pointer;
+
+	&:hover {
+		background-color: hsla(0, 100%, 100%, 0.1);
+	}
+}
+
+.selected {
+	color: hsl(205, 74%, 18%);
+	background-color: hsla(0, 0%, 100%, 0.6);
+
+	&:hover {
+		color: hsl(205, 74%, 18%);
+		background-color: hsla(0, 0%, 100%, 0.6);
+	}
+}

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExpandButton_Snapshot 1`] = `
+<button
+  className="button  expanded"
+  onClick={[Function]}
+>
+  <div
+    className="version"
+  >
+    <span>
+      ICAPv1.1.0
+    </span>
+    <span>
+      Rebuild: v1.5
+    </span>
+  </div>
+</button>
+`;

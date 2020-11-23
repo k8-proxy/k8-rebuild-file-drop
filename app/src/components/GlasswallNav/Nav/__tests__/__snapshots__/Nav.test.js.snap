@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav_Snapshot 1`] = `
+<nav
+  className="nav menuExpanded "
+>
+  <div
+    className="scrollContainer"
+  >
+    <ul />
+  </div>
+</nav>
+`;

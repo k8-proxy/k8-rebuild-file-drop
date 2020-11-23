@@ -1,0 +1,54 @@
+.button {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	display: block;
+	height: 5rem;
+	width: 100%;
+	border: none;
+	outline: none;
+
+	background-color: rgba(12, 52, 80, 0.3);
+
+	transition: all 0.3s;
+	cursor: pointer;
+
+	.version {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		opacity: 0;
+
+		transition: opacity 200ms linear;
+	}
+	span {
+		color: #ffffff;
+	}
+
+	&:after {
+		content: "";
+		position: absolute;
+		top: 0.5rem;
+		right: 0;
+		-ms-transform-origin: 50% 50% 1rem;
+		transform-origin: 50% 50% 1rem;
+		transform: rotateY(0deg);
+		width: 4rem;
+		height: 4rem;
+		background: transparent
+			url("data:image/svg+xml,%3Csvg id='Layer_1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Cstyle%3E.st1%7Bdisplay:none%7D.st2%7Bstroke-linecap:round%7D.st2,.st4%7Bdisplay:inline;fill:none;stroke:%23fff;stroke-miterlimit:10%7D%3C/style%3E%3Cg id='Graph' class='st1'%3E%3Cpath class='st2' d='M34.06 33.11H11.3c-1.02 0-1.85-.95-1.85-2.13V11.14'/%3E%3Cpath class='st2' d='M13.53 29.35l5.19-5.19 3.59 3.58 7.28-7.29'/%3E%3Cpath d='M31.98 21.87v-3.4c0-.22-.18-.4-.4-.4h-3.4c-.36 0-.53.43-.28.68l3.4 3.4c.25.26.68.08.68-.28z' fill='%23fff'/%3E%3C/g%3E%3Cg id='File_Release_Request' class='st1'%3E%3Cpath class='st4' d='M24.24 28.84v5.32c0 1.12-.81 2.03-1.8 2.03H7.16c-.99 0-1.8-.91-1.8-2.03V18.38M5.36 18.38v-4.96c0-.54.19-1.05.53-1.43l3.18-3.58c.34-.38.79-.59 1.27-.59h12.11c.99 0 1.8.91 1.8 2.03v5.28'/%3E%3Cpath class='st2' d='M17.76 22h16.3M31.38 14.74l6.02 6.02c.78.78.78 2.05 0 2.83l-6.02 6.02'/%3E%3C/g%3E%3Cg id='Users' class='st1'%3E%3Ccircle class='st4' cx='14.25' cy='16.18' r='4.82'/%3E%3Cpath class='st2' d='M10.87 22.13c-3.21 1.13-5.68 3.8-6.52 7.13-.26 1.02.55 2 1.6 2h16.6c1.05 0 1.86-.98 1.6-2-.84-3.33-3.31-6-6.52-7.13'/%3E%3Ccircle class='st4' cx='30.38' cy='18.68' r='3.99'/%3E%3Cpath class='st2' d='M26.18 31.15c3.29 0 6.6.11 9.89 0 5.54-.18-.05-6.54-2.89-7.55M27.58 23.6c-1 .35-1.93.9-2.73 1.59'/%3E%3C/g%3E%3Cg id='Account' class='st1'%3E%3Ccircle class='st4' cx='21.26' cy='19.32' r='4.82'/%3E%3Cpath class='st2' d='M29.98 29.58c-1.22-1.99-3.1-3.53-5.34-4.32M17.88 25.27c-2.24.79-4.12 2.33-5.34 4.32'/%3E%3Ccircle class='st4' cx='21.26' cy='22.32' r='14.5'/%3E%3C/g%3E%3Cg id='Transaction_Log' class='st1'%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' d='M10.38 21.22h22.84' id='Dashboard'/%3E%3Cpath class='st2' d='M28.93 13.78l6.02 6.02c.78.78.78 2.05 0 2.83l-6.02 6.02M14.81 13.74l-6.02 6.02c-.78.78-.78 2.05 0 2.83l6.02 6.02'/%3E%3C/g%3E%3Cpath d='M19.79 9.64l9.37 9.37a3.102 3.102 0 0 1 0 4.4l-9.37 9.37' fill='none' stroke='%23fff' stroke-width='1.1' stroke-linecap='round' stroke-miterlimit='10'/%3E%3C/svg%3E")
+			right center no-repeat;
+		transition: all 0.3s 0.2s ease-out;
+	}
+
+	&.expanded {
+		.version {
+			opacity: 1;
+			transition: opacity 300ms linear;
+		}
+		&:after {
+			transform: rotateY(-180deg);
+		}
+	}
+}

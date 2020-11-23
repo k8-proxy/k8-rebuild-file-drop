@@ -1,0 +1,45 @@
+.PopupFilter {
+	position: absolute;
+	z-index: 9999;
+	left: 0;
+	top: 0;
+
+	min-height: 5rem;
+	min-width: 5rem;
+
+	overflow: hidden;
+	background-color: #fff;
+	opacity: 1;
+	border: 1px solid #b6bfc9;
+	border-radius: 0.6rem;
+	box-shadow: 0 3px 16px 1.6px rgba(0, 0, 0, 0.34);
+	//transition: 0.5s all;
+
+	& header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		width: 100%;
+		height: 4rem;
+
+		margin-bottom: 4rem;
+
+		color: #196480;
+		background: #e6e9ea;
+
+		& span {
+			margin-left: 2rem;
+			font-size: 1.5rem;
+		}
+	}
+
+	& .inner {
+		display: flex;
+		flex-direction: column;
+	}
+
+	& .buttonClose {
+		margin-right: 1rem;
+	}
+}
