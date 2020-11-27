@@ -1,0 +1,12 @@
+apiVersion: {{ include "common.capabilities.ingress.apiVersion" . }}
+kind: Ingress
+metadata:
+  name: {{ include "common.names.fullname" . }}
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /
+            backend:
+              serviceName: {{ template "common.names.fullname" . }}
+              servicePort: http
