@@ -1,1 +1,7 @@
-.env*
+**
+
+!public
+!src
+!.eslintrc.js
+!package*.json
+!tsconfig*.json
