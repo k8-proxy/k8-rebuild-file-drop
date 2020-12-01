@@ -1,6 +1,8 @@
 apiVersion: {{ include "common.capabilities.ingress.apiVersion" . }}
 kind: Ingress
 metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
   name: {{ include "common.names.fullname" . }}
 spec:
   rules:
