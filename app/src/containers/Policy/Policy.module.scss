@@ -1,0 +1,25 @@
+.Policy {
+	overflow: hidden;
+	height: 100%;
+
+	background: #edf0f1;
+	border-radius: 0.6rem;
+
+	border: 1px solid #b6bfc9;
+	border-radius: 0.6rem;
+
+	h2 {
+		text-transform: uppercase;
+
+		margin: 0;
+		padding-left: 2rem;
+
+		font-size: 1.4rem;
+		line-height: 4rem;
+		//border-bottom: 1px solid #b6bfc9;
+	}
+
+	h3 {
+		margin: 0;
+	}
+}

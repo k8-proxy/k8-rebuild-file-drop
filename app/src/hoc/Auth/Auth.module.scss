@@ -1,0 +1,39 @@
+.Auth {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	height: 100vh;
+
+	padding-top: 10rem;
+
+	background: linear-gradient(-45deg, #196480, #0c3450);
+
+	opacity: 0;
+	animation: openAuth 500ms linear forwards;
+}
+
+@media (max-width: 992px) {
+	.Auth {
+		padding-top: 0;
+	}
+}
+
+.test {
+	background: red;
+}
+
+@keyframes openAuth {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}

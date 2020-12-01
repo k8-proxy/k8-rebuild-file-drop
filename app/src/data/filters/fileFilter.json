@@ -1,0 +1,123 @@
+[
+  {
+    "id": "microsoftword",
+    "filterName": "Microsoft Word",
+    "checkboxList": [
+      {
+        "id": "microsoftword-doc-1",
+        "type": "checkbox",
+        "format": "doc",
+        "name": "docType",
+        "isChecked": false
+      },
+      {
+        "id": "microsoftword-dot-2",
+        "type": "checkbox",
+        "format": "dot",
+        "name": "docType",
+        "isChecked": false
+      },
+      {
+        "id": "microsoftword-docx-3",
+        "type": "checkbox",
+        "format": "docx",
+        "name": "docType",
+        "isChecked": false
+      },
+      {
+        "id": "microsoftword-docm-4",
+        "type": "checkbox",
+        "format": "docm",
+        "name": "docType",
+        "isChecked": false
+      }
+    ]
+  },
+  {
+    "id": "microsoftexcel",
+    "filterName": "Microsoft Excel",
+    "checkboxList": [
+      {
+        "id": "microsoftexcel-xlsx-1",
+        "type": "checkbox",
+        "format": "xlsx",
+        "name": "xlsType",
+        "isChecked": false
+      },
+      {
+        "id": "microsoftexcel-xls-2",
+        "type": "checkbox",
+        "format": "xls",
+        "name": "xlsType",
+        "isChecked": false
+      },
+      {
+        "id": "microsoftexcel-xlsm-3",
+        "type": "checkbox",
+        "format": "xlsm",
+        "name": "xlsType",
+        "isChecked": false
+      }
+    ]
+  },
+  {
+    "id": "microsoftpowerpoint",
+    "filterName": "Microsoft Powerpoint",
+    "checkboxList": [
+      {
+        "id": "microsoftpowerpoint-ppt-1",
+        "type": "checkbox",
+        "format": "ppt",
+        "name": "pptType",
+        "isChecked": false
+      },
+      {
+        "id": "microsoftpowerpoint-pptx-2",
+        "type": "checkbox",
+        "format": "pptx",
+        "name": "pptType",
+        "isChecked": false
+      }
+    ]
+  },
+  {
+    "id": "images",
+    "filterName": "Images",
+    "checkboxList": [
+      {
+        "id": "images-jpeg-1",
+        "type": "checkbox",
+        "format": "jpeg",
+        "name": "imgType",
+        "isChecked": false
+      },
+      {
+        "id": "images-png-2",
+        "type": "checkbox",
+        "format": "png",
+        "name": "imgType",
+        "isChecked": false
+      },
+      {
+        "id": "images-gif-3",
+        "type": "checkbox",
+        "format": "gif",
+        "name": "imgType",
+        "isChecked": false
+      }
+    ]
+  },
+  {
+    "id": "pdf",
+    "filterName": "Adobe",
+    "checkboxList": [
+      {
+        "id": "pdf-pdf-1",
+        "type": "checkbox",
+        "format": "pdf",
+        "name": "pdfType",
+        "isChecked": false
+      }
+    ]
+  }
+]

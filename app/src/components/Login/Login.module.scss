@@ -1,0 +1,97 @@
+.login {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	height: 100%;
+
+	transform: translate(-50%, -50%);
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	width: 30rem;
+
+	opacity: 0;
+	animation: loginPopup 500ms ease-in-out 100ms forwards;
+
+	form {
+		display: flex;
+		flex-direction: column;
+
+		width: 100%;
+
+		margin: 4rem 0;
+
+		div {
+			padding-bottom: 1rem;
+		}
+
+		input {
+			padding-left: 5rem;
+		}
+		button {
+			margin: 4rem auto 0;
+		}
+	}
+}
+
+.logo {
+	position: absolute;
+	top: 15%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 20rem;
+	height: 10rem;
+
+	margin: 0 auto;
+
+	opacity: 0;
+	animation: logo 250ms ease-out forwards;
+}
+
+.linkTerms {
+	font-size: 1.2rem;
+	margin: 1rem auto;
+	color: #e6e9ea;
+	opacity: 0.5;
+
+	a {
+		color: #54e0e8;
+		text-decoration: none;
+	}
+}
+
+.rePassLink {
+	opacity: 0.5;
+	a {
+		font-size: 1.4rem;
+		color: #e6e9ea;
+
+		text-decoration: none;
+	}
+}
+
+@keyframes loginPopup {
+	from {
+		opacity: 0;
+		top: 60%;
+	}
+	to {
+		top: 50%;
+		opacity: 1;
+	}
+}
+
+@keyframes logo {
+	from {
+		opacity: 0;
+		top: 25%;
+	}
+	to {
+		opacity: 1;
+		top: 15%;
+	}
+} ;

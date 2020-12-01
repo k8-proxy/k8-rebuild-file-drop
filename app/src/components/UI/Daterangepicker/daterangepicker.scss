@@ -1,0 +1,83 @@
+.daterangepicker {
+	//position: absolute;
+	top: 135px !important;
+	//left: 38% !important;
+
+	font-size: 12px;
+	padding: 8px 12px;
+	cursor: pointer;
+	color: #575757;
+
+	box-shadow: 0 3px 16.38px 1.62px rgba(0, 0, 0, 0.15);
+
+	&.opensright:after {
+		left: 50%;
+	}
+
+	&.opensright:before {
+		left: calc(50% - 1px);
+	}
+
+	&.show-ranges.show-calendar {
+		left: 37% !important;
+	}
+
+	&.show-ranges {
+		left: 53% !important;
+	}
+
+	.ranges li.active {
+		background-color: #4592b0;
+	}
+
+	td.active,
+	td.active:hover {
+		background-color: #4592b0;
+		border-color: transparent;
+		color: #fff;
+	}
+
+	select.hourselect,
+	select.minuteselect,
+	select.secondselect,
+	select.ampmselect {
+		background-color: transparent;
+		border: #e6e9ea 1px solid;
+		border-radius: 1.5rem;
+	}
+	.drp-selected {
+		padding-right: 8px;
+	}
+
+	.calendar-table th,
+	.drp-buttons .btn {
+		font-weight: normal;
+		text-transform: uppercase;
+		line-height: 3rem;
+	}
+
+	.drp-buttons .btn {
+		overflow: hidden;
+		border: 0;
+
+		padding: 0 2rem;
+
+		line-height: 3rem;
+		border-radius: 3px;
+		margin-top: 1rem;
+		margin-left: 8px;
+		font-size: 12px;
+
+		background-color: #4592b0;
+		color: #ffffff;
+	}
+
+	.drp-buttons .btn.cancelBtn {
+		color: #4592b0;
+
+		background-color: transparent;
+		border: 1px solid #4592b0;
+		border-color: #4592b0;
+		transition: all 0.3s;
+	}
+}

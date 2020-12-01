@@ -1,0 +1,25 @@
+.FileRow {
+	height: 4rem;
+
+	margin-left: 1rem;
+
+	cursor: pointer;
+
+	transition: background 0.2s ease-in-out;
+	border-bottom: 1px solid #b6bfc9;
+
+	&:hover {
+		transition: background 0.2s ease-in-out;
+		background: #e6e9ea;
+	}
+
+	&:last-child {
+		border-bottom: 1px solid #4592b0;
+	}
+
+	td {
+		font-size: 1.2rem;
+		border-bottom: none;
+		padding: 0;
+	}
+}

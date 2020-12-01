@@ -1,0 +1,90 @@
+.Daterangepicker {
+	position: absolute;
+	z-index: 1;
+	display: flex;
+
+	align-items: center;
+
+	height: 2.2rem;
+
+	border: 1px solid #b6bfc9;
+	border-radius: 1.5rem;
+
+	color: #575757;
+
+	.reportrange {
+		font-size: 1.3rem;
+		padding-left: 1rem;
+
+		span {
+			padding-right: 5rem;
+			background: url(../../../assets/svg/calendar/calendar-icon.svg) 26.5rem -3px
+				no-repeat;
+		}
+
+		cursor: pointer;
+	}
+
+	.intervalButton {
+		display: flex;
+		align-items: center;
+
+		height: 100%;
+
+		border: none;
+		padding: 0 1rem;
+
+		background: #4592b0;
+		color: #ffffff;
+		border-right: 1px solid #b6bfc9;
+		border-radius: 1.5rem 0 0 1.5rem;
+	}
+	//	.popup {
+	//		top: 2rem;
+	//		left: -4rem;
+
+	//		width: 23rem;
+
+	//		button {
+	//			width: 100%;
+
+	//			margin-bottom: 1rem;
+	//			padding: 0 1rem;
+	//			transition: all 0.2s ease-in-out;
+
+	//			&:hover {
+	//				color: #ffffff;
+	//				background-color: #4592b0;
+	//				transition: all 0.2s ease-in-out;
+	//			}
+	//		}
+	//	}
+	//}
+
+	//.openPopupEnterActive {
+	//	animation: popup 300ms ease-out forwards;
+	//}
+
+	//.closePopupExitActive {
+	//	animation: popup 300ms ease-out alternate-reverse forwards;
+	//}
+
+	//@keyframes popup {
+	//	from {
+	//		top: 6rem;
+	//		opacity: 0;
+	//	}
+	//	to {
+	//		top: 2rem;
+	//		opacity: 1;
+	//	}
+	//}
+
+	//.textField {
+	//	//opacity: 0;
+	//	input {
+	//		text-decoration: none;
+	//		text-decoration: underline;
+	//	}
+	//}
+}

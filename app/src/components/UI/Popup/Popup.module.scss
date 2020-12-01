@@ -1,0 +1,37 @@
+.Popup {
+	//position: absolute;
+	z-index: 99;
+
+	padding: 2rem;
+
+	background-color: #fff;
+	border-radius: 0.6rem;
+	box-shadow: 0 3px 16px 1.6px rgba(0, 0, 0, 0.34);
+	transition: 0.3s opacity linear, 0.3s transform linear;
+
+	& button {
+		display: flex;
+		min-width: 8rem;
+
+		text-decoration: none;
+		text-transform: uppercase;
+		background-color: transparent;
+		border: none;
+
+		background-repeat: no-repeat;
+		background-position: 1rem center;
+
+		text-align: left;
+
+		cursor: pointer;
+	}
+}
+
+.wrap {
+	position: absolute;
+	z-index: 99;
+
+	padding: 1rem;
+
+	background: transparent;
+}

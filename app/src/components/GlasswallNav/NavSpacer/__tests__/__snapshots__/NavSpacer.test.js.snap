@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavSpacer_Snapshot 1`] = `
+<li>
+  <div
+    className="spacer"
+  />
+</li>
+`;

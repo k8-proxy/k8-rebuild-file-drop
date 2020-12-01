@@ -1,0 +1,9 @@
+<svg id="Layer_1"
+    xmlns="http://www.w3.org/2000/svg" width="72" height="140">
+    <style>.st0{fill:none;stroke:#fff;stroke-miterlimit:10}.st1{fill:#fff}</style>
+    <circle class="st0" cx="33.3" cy="34.3" r="11.6"/>
+    <path class="st0" stroke="#fff" d="M27.6 41v-6.5h-1c-.5 0-.8-.6-.4-.9l6.4-5.7c.2-.2.6-.2.8 0l2.8 2.5v-1.9h2.2v4.3l1.4.8c.4.3.1.9-.4.9h-1V41"/>
+    <path class="st0" stroke="#125b7f" d="M27.6 41v-6.5h-1c-.5 0-.8-.6-.4-.9l6.4-5.7c.2-.2.6-.2.8 0l2.8 2.5v-1.9h2.2v4.3l1.4.8c.4.3.1.9-.4.9h-1V41"/>
+    <path class="st1" d="M38 40h3v1h-3zM25 40h3v1h-3z"/>
+    <path class="st0" d="M34.5 41v-5.5h-3V41"/>
+</svg>

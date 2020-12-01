@@ -1,0 +1,174 @@
+[
+  {
+    "id": "prev-Adam2-20092020165445",
+    "username": "Adam2",
+    "userEmail": "ahewitt@glasswallsolutions.com",
+    "timestamp": "Sun, 20 Sep 2020 16:54:45",
+    "policyFlagList": {
+      "word": [
+        {
+          "id": "word-id-1",
+          "name": "Dynamic Data Exchange",
+          "pos": "disallow",
+          "touched": true
+        },
+        {
+          "id": "word-id-2",
+          "name": "Embedded Files",
+          "pos": "sanitise"
+        },
+        {
+          "id": "word-id-3",
+          "name": "Embedded Files",
+          "pos": "sanitise"
+        },
+        {
+          "id": "word-id-4",
+          "name": "External Hyperlinks",
+          "pos": "sanitise"
+        },
+        {
+          "id": "word-id-5",
+          "name": "Internal Hyperlinks",
+          "pos": "sanitise"
+        },
+        {
+          "id": "word-id-6",
+          "name": "Macros",
+          "pos": "sanitise"
+        },
+        {
+          "id": "word-id-7",
+          "name": "Metadata",
+          "pos": "sanitise"
+        },
+        {
+          "id": "word-id-8",
+          "name": "Review Comments",
+          "pos": "sanitise"
+        }
+      ],
+      "excel": [
+        {
+          "id": "excel-id-1",
+          "name": "Dynamic Data Exchange",
+          "pos": "sanitise"
+        },
+        {
+          "id": "excel-id-2",
+          "name": "Embedded Files",
+          "pos": "sanitise"
+        },
+        {
+          "id": "excel-id-3",
+          "name": "Embedded Files",
+          "pos": "sanitise"
+        },
+        {
+          "id": "excel-id-4",
+          "name": "External Hyperlinks",
+          "pos": "sanitise"
+        },
+        {
+          "id": "excel-id-5",
+          "name": "Internal Hyperlinks",
+          "pos": "sanitise"
+        },
+        {
+          "id": "excel-id-6",
+          "name": "Macros",
+          "pos": "sanitise"
+        },
+        {
+          "id": "excel-id-7",
+          "name": "Metadata",
+          "pos": "sanitise"
+        },
+        {
+          "id": "excel-id-8",
+          "name": "Review Comments",
+          "pos": "sanitise"
+        }
+      ],
+      "powerpoint": [
+        {
+          "id": "powerpoint-id-1",
+          "name": "Embedded Files",
+          "pos": "sanitise"
+        },
+        {
+          "id": "powerpoint-id-2",
+          "name": "Embedded Images",
+          "pos": "sanitise"
+        },
+        {
+          "id": "powerpoint-id-3",
+          "name": "External Hyperlinks",
+          "pos": "sanitise"
+        },
+        {
+          "id": "powerpoint-id-4",
+          "name": "Internal Hyperlinks",
+          "pos": "sanitise"
+        },
+        {
+          "id": "powerpoint-id-5",
+          "name": "Macros",
+          "pos": "sanitise"
+        },
+        {
+          "id": "powerpoint-id-6",
+          "name": "Metadata",
+          "pos": "sanitise"
+        },
+        {
+          "id": "powerpoint-id-7",
+          "name": "Review Comments",
+          "pos": "sanitise"
+        }
+      ],
+      "pdf": [
+        {
+          "id": "pdf-id-1",
+          "name": "Acroform",
+          "pos": "sanitise"
+        },
+        {
+          "id": "pdf-id-2",
+          "name": "Actions All",
+          "pos": "sanitise"
+        },
+        {
+          "id": "pdf-id-3",
+          "name": "Embedded Files",
+          "pos": "sanitise"
+        },
+        {
+          "id": "pdf-id-4",
+          "name": "Embedded Images",
+          "pos": "sanitise"
+        },
+        {
+          "id": "pdf-id-5",
+          "name": "External Hyperlinks",
+          "pos": "sanitise"
+        },
+        {
+          "id": "pdf-id-6",
+          "name": "Internal Hyperlinks",
+          "pos": "sanitise"
+        },
+        {
+          "id": "pdf-id-7",
+          "name": "Javascript",
+          "pos": "sanitise"
+        },
+        {
+          "id": "pdf-id-8",
+          "name": "Metadata",
+          "pos": "sanitise"
+        }
+      ]
+    }
+  }
+]
