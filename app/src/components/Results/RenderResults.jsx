@@ -10,6 +10,9 @@ import FileAttributes from "./FileAttributes/FileAttributes";
 import ButtonsContainer from "../ButtonsContainer/ButtonsContainer";
 import Button from "../UI/Button/Button";
 
+import { engineApi } from "../../api";
+import { trackPromise } from "react-promise-tracker";
+
 function RenderResults({
 	file,
 	analysisReport,
@@ -17,6 +20,37 @@ function RenderResults({
 	validation,
 	isShowResult,
 }) {
+
+	const getAnalysisReport = (analysisReport) => {
+		debugger;
+		const binaryData = [];
+		binaryData.push(analysisReport);
+		let url = window.URL.createObjectURL(new Blob(binaryData, { type: "text/xml" }));
+		let a = document.createElement('a');
+		a.href = url;
+		a.download = file.name + ".xml";
+		a.click();
+	}
+
+
+	const getProtectedFile = () => {
+		debugger;
+		trackPromise(
+			engineApi.protectFile(file)
+				.then(blob => {
+					let url = window.URL.createObjectURL(blob);
+					let a = document.createElement('a');
+					a.href = url;
+					a.download = file.name;
+					a.click();
+				})
+				.catch((error) => {
+					// debugger;
+					console.log(error.message)
+				}))
+	}
+
+
 	if (validation) {
 		return (
 			<div className="validationErrors">
@@ -51,17 +85,17 @@ function RenderResults({
 						<ButtonsContainer externalStyles={classes.buttons}>
 							<Button
 								testId="buttonFileDropDownloadPdf"
-								//onButtonClick={() => setShowResult(true)}
+								onButtonClick={getProtectedFile}
 								externalStyles={classes.button}
 							>
-								PDF
+								Download Protected File
 							</Button>
 							<Button
 								testId="buttonFileDropDownloadXml"
-								//onButtonClick={() => setShowResult(true)}
+								onButtonClick={getAnalysisReport}
 								externalStyles={classes.button}
 							>
-								XML
+								Download XML Report
 							</Button>
 						</ButtonsContainer>
 						<FileAttributes file={file} fileType={fileType} />
