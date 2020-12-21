@@ -110,25 +110,14 @@ function RenderResults({
 		}
 
 		return (
-			<CSSTransition
-				in={isShowResult}
-				timeout={300}
-				classNames={{
-					enterActive: classes.fadeEnterActive,
-					exitActive: classes.fadeExitActive,
-				}}
-				mountOnEnter
-				unmountOnExit
-			>
-				<div className={[classes.RenderResults, classes.result].join(" ")}>
-					<SectionTitle>File is clean!</SectionTitle>
-					<DownloadAnalysisReport
-						report={analysisReportString}
-						filename={fileName}
-					/>
-					<FileAttributes file={file} fileType={fileType} />
-				</div>
-			</CSSTransition>
+			<div className={[classes.RenderResults, classes.result].join(" ")}>
+				<SectionTitle>File is clean!</SectionTitle>
+				<DownloadAnalysisReport
+					report={analysisReportString}
+					filename={fileName}
+				/>
+				<FileAttributes file={file} fileType={fileType} />
+			</div>
 		);
 	}
 	return null;

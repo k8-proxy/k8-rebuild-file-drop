@@ -11,12 +11,12 @@ import classes from "./FileDrop.module.scss";
 import supporting from "../../data/fileDrop/supportedFileTypes.json";
 import messages from "../../data/fileDrop/messages.json";
 
-import refreshIcon from "../../assets/svg/file-drop/refresh-button.svg";
+// import refreshIcon from "../../assets/svg/file-drop/refresh-button.svg";
 
 import StyledDropzone from "../../components/UI/StyledDropzone/StyledDropzone";
 import Button from "../../components/UI/Button/Button";
 import RenderResults from "../../components/Results/RenderResults";
-import IconButton from "../../components/UI/IconButton/IconButton";
+// import IconButton from "../../components/UI/IconButton/IconButton";
 
 const FileDrop = () => {
 	const { addToast } = useToasts();
@@ -43,13 +43,13 @@ const FileDrop = () => {
 		// vendors.push(vendorName);
 		fileTypes[vIndex] = [];
 
-		vendorTypes.forEach((type, tIndex) => {
+		vendorTypes.forEach((type) => {
 			const typeName = Object.keys(type)[0];
 			const extensions = type[typeName];
 			fileTypes[vIndex].push(typeName);
 			extByTypes[vendorName + "-" + typeName] = extensions;
 
-			extensions.forEach((extension, eIndex) => {
+			extensions.forEach((extension) => {
 				accept.push(extension);
 			});
 		});
@@ -133,6 +133,21 @@ const FileDrop = () => {
 		setShowResult(false);
 	};
 
+	let styledDropzone = <StyledDropzone
+		//externalStyles={classes.dropzone}
+		onDrop={handleDrop}
+		accept={accept}
+		loading={loading}
+	>
+		<div className={classes.message}>
+			Drop a file here to have it processed by Glasswall CDR
+		</div>
+		<div className={[classes.message, classes.reject].join(" ")}>
+			Please use a supported file type
+		</div>
+		<div className={[classes.image, classes.imageDrop].join(" ")} />
+		<Button testId="buttonFileDropSelectFile" externalStyles={classes.button}>SELECT A FILE</Button>
+	</StyledDropzone>;
 	return (
 		<section className={classes.FileDrop}>
 			<div className={classes.dropzoneWrap}>
@@ -147,21 +162,7 @@ const FileDrop = () => {
 							height: "100%",
 						}}
 					>
-						<StyledDropzone
-							//externalStyles={classes.dropzone}
-							onDrop={handleDrop}
-							accept={accept}
-							loading={loading}
-						>
-							<div className={classes.message}>
-								Drop a file here to have it processed by Glasswall CDR
-							</div>
-							<div className={[classes.message, classes.reject].join(" ")}>
-								Please use a supported file type
-							</div>
-							<div className={[classes.image, classes.imageDrop].join(" ")} />
-							<Button testId="buttonFileDropSelectFile" externalStyles={classes.button}>SELECT A FILE</Button>
-						</StyledDropzone>
+						{styledDropzone}
 						<div className={classes.infoBlock}>
 							<p>
 								Once the file has been uploaded, it is passed through the
@@ -173,6 +174,9 @@ const FileDrop = () => {
 				) : (
 						<>
 							<div className={[classes.dropzone, classes.processed].join(" ")}>
+								{styledDropzone}
+
+{/*
 								<div className={classes.results}>
 									<IconButton
 										externalStyles={classes.buttonRefresh}
@@ -200,6 +204,7 @@ const FileDrop = () => {
 										VIEW RESULT
 								</Button>
 								</div>
+*/}
 							</div>
 							<RenderResults
 								file={file}
