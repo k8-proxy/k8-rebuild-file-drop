@@ -9,7 +9,7 @@ import {
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import { GlobalStoreContext } from "./context/globalStore/globalStore-context";
-import { AuthContext } from "./context/auth/auth-context";
+// import { AuthContext } from "./context/auth/auth-context";
 
 import classes from "./App.module.scss";
 
