@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { useToasts } from "react-toast-notifications";
 import { trackPromise } from "react-promise-tracker";
 
-import { validFileType } from "../../actions";
+// import { validFileType } from "../../actions";
 import { engineApi, ResponseError } from "../../api";
 import { FileDropContext } from "../../context/fileDrop/fileDrop-context";
 
@@ -76,19 +76,7 @@ const FileDrop = () => {
 		// console.dir(accepted);
 
 		trackPromise(
-			validFileType(accepted)
-				.then((result) => {
-					// console.warn(` ----------- File Type is checked at ${new Date().toISOString()} -------------`);
-					if (!result) {
-						const messageText = messages["file-invalid-type"];
-						addToast(messageText, {
-							appearance: "warning",
-							autoDismiss: true,
-						});
-						return;
-					}
-					return engineApi.analyseFile(accepted);
-				})
+			engineApi.analyseFile(accepted)
 				.then((result) => {
 					// console.warn(` ----------- File Analysis is done ${new Date().toISOString()} -------------`);
 					const XMLParser = require("react-xml-parser");
