@@ -67,10 +67,10 @@ const Toolbar = ({ expanded, navExpandedHandler }) => {
 	} = useContext(AuthContext);
 
 	const cls = [classes.Toolbar];
-	const clsNav = [classes.nav];
+	// const clsNav = [classes.nav];
 	if (expanded) {
 		cls.push(classes.expanded);
-		clsNav.push(classes.expanded);
+		// clsNav.push(classes.expanded);
 	}
 
 	const accountLinks = [
@@ -110,6 +110,7 @@ const Toolbar = ({ expanded, navExpandedHandler }) => {
 				<ExpandButton expanded={expanded} clickHandler={navExpandedHandler} />
 			</section>
 
+{/*
 			<CSSTransition
 				in={isOpenPopup}
 				timeout={300}
@@ -130,6 +131,7 @@ const Toolbar = ({ expanded, navExpandedHandler }) => {
 					closePopupHover={() => setIsOpenPopup(false)}
 				/>
 			</CSSTransition>
+*/}
 
 			<ChangePassword
 				isOpenModal={isChangePass}
