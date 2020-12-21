@@ -24,7 +24,7 @@ function RenderResults({
 	const getAnalysisReport = (analysisReport) => {
 		debugger;
 		const binaryData = [];
-		binaryData.push(analysisReport);
+		binaryData.push(analysisReportString);
 		let url = window.URL.createObjectURL(new Blob(binaryData, { type: "text/xml" }));
 		let a = document.createElement('a');
 		a.href = url;
