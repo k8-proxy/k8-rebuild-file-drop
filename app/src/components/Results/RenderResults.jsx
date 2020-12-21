@@ -22,7 +22,7 @@ function RenderResults({
 }) {
 
 	const getAnalysisReport = (analysisReport) => {
-		debugger;
+		// debugger;
 		const binaryData = [];
 		binaryData.push(analysisReportString);
 		let url = window.URL.createObjectURL(new Blob(binaryData, { type: "text/xml" }));
@@ -34,7 +34,7 @@ function RenderResults({
 
 
 	const getProtectedFile = () => {
-		debugger;
+		// debugger;
 		trackPromise(
 			engineApi.protectFile(file)
 				.then(blob => {
