@@ -419,7 +419,7 @@ const PieGraph = ({ rawData, labelInnerGapDegree = 1 }) => {
 
      // finds new labels' positions, to resolve mutual overlapping for given chain
     function resolveOverlapping({ startIndex, chainLength }) {
-		debugger
+		// debugger
 		let averageAngle = getAverageAngle({ startIndex, chainLength });
 
 		let {vertical, horizontal, skew, left, bottom} = getPlacementZones(averageAngle);
@@ -571,7 +571,7 @@ const PieGraph = ({ rawData, labelInnerGapDegree = 1 }) => {
 		}
 
         if (vertical) {
-        	debugger;
+        	// debugger;
 			const bottomY = aggregator('bl', { axis: 'y', startIndex, chainLength }).reduce((maxY, y) => max(maxY, y));
 			const bottomLefts = aggregator('bl', { startIndex, chainLength });
 			const topRights = aggregator('tr', { startIndex, chainLength });

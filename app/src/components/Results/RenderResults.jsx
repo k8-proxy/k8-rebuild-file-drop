@@ -1,5 +1,4 @@
 import React from "react";
-import { CSSTransition } from "react-transition-group";
 
 import classes from "./RenderResults.module.scss";
 
@@ -22,7 +21,7 @@ function RenderResults({
 }) {
 
 	const getAnalysisReport = (analysisReport) => {
-		debugger;
+		// debugger;
 		const binaryData = [];
 		binaryData.push(analysisReportString);
 		let url = window.URL.createObjectURL(new Blob(binaryData, { type: "text/xml" }));
@@ -34,7 +33,7 @@ function RenderResults({
 
 
 	const getProtectedFile = () => {
-		debugger;
+		// debugger;
 		trackPromise(
 			engineApi.protectFile(file)
 				.then(blob => {
@@ -110,25 +109,14 @@ function RenderResults({
 		}
 
 		return (
-			<CSSTransition
-				in={isShowResult}
-				timeout={300}
-				classNames={{
-					enterActive: classes.fadeEnterActive,
-					exitActive: classes.fadeExitActive,
-				}}
-				mountOnEnter
-				unmountOnExit
-			>
-				<div className={[classes.RenderResults, classes.result].join(" ")}>
-					<SectionTitle>File is clean!</SectionTitle>
-					<DownloadAnalysisReport
-						report={analysisReportString}
-						filename={fileName}
-					/>
-					<FileAttributes file={file} fileType={fileType} />
-				</div>
-			</CSSTransition>
+			<div className={[classes.RenderResults, classes.result].join(" ")}>
+				<SectionTitle>File is clean!</SectionTitle>
+				<DownloadAnalysisReport
+					report={analysisReportString}
+					filename={fileName}
+				/>
+				<FileAttributes file={file} fileType={fileType} />
+			</div>
 		);
 	}
 	return null;
