@@ -167,7 +167,7 @@ const FileDrop = () => {
 							<p>
 								Once the file has been uploaded, it is passed through the
 								Analysis API of the Glasswall SDK. The applied content
-								management policy has all content flags set to 'Sanitise' (except for GeoTIFF files, which are set to allow).
+								management policy has all content flags set to 'Sanitise'.
 							</p>
 						</div>
 					</section>
