@@ -1,6 +1,6 @@
 FROM node:12 AS builder
 WORKDIR /context
-COPY package*.json .
+COPY package.json .
 RUN npm install
 COPY . .
 ARG REACT_APP_ANALYSE_API_ENDPOINT=''

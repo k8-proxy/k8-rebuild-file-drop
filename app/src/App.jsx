@@ -9,7 +9,7 @@ import {
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import { GlobalStoreContext } from "./context/globalStore/globalStore-context";
-// import { AuthContext } from "./context/auth/auth-context";
+import { AuthContext } from "./context/auth/auth-context";
 
 import classes from "./App.module.scss";
 
@@ -28,8 +28,7 @@ import FileDrop from "./containers/FileDrop/FileDrop";
 
 const App = () => {
 	const [navExpanded, setNavExpanded] = useState(true);
-	const isAuth = true;
-	// const { isAuth } = useContext(AuthContext);
+	const { isAuth } = { isAuth: true };
 	const { title } = useContext(GlobalStoreContext);
 
 	return (
