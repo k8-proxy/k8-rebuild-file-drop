@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-// import { CSSTransition } from "react-transition-group";
+import React, { useState, useContext } from "react";
+import { CSSTransition } from "react-transition-group";
 
 import classes from "./Toolbar.module.scss";
 
@@ -9,7 +9,7 @@ import GlasswallLogo from "../../GlasswallLogo/GlasswallLogo";
 import NavigationItems from "../NavigationItems/NavigationItems";
 import { ExpandButton } from "../ExpandButton/ExpandButton";
 import UserLink from "../../UI/UserLink/UserLink";
-// import Popup from "../../UI/Popup/Popup";
+import Popup from "../../UI/Popup/Popup";
 
 // import usersIcon from "../../../assets/menu-icons/icon-users.svg";
 import fileDoropIcon from "../../../assets/menu-icons/icon-file-drop.svg";
@@ -17,8 +17,8 @@ import fileDoropIcon from "../../../assets/menu-icons/icon-file-drop.svg";
 // import transactionIcon from "../../../assets/menu-icons/icon-transactions.svg";
 // import dashIcon from "../../../assets/menu-icons/icon-dashboard.svg";
 
-// import logoutIcon from "../../../assets/svg/account-icons/logout-icon.svg";
-// import changePassIcon from "../../../assets/svg/account-icons/change-password-icon.svg";
+import logoutIcon from "../../../assets/svg/account-icons/logout-icon.svg";
+import changePassIcon from "../../../assets/svg/account-icons/change-password-icon.svg";
 import ChangePassword from "../../ChangePassword/ChangePassword";
 
 const navLinks = [
@@ -58,22 +58,21 @@ const navLinks = [
 ];
 
 const Toolbar = ({ expanded, navExpandedHandler }) => {
-	// const [setIsOpenPopup] = useState(false);
+	const [isOpenPopup, setIsOpenPopup] = useState(false);
 	const {
-		// logout,
+		logout,
 		isChangePass,
-		// openChangePass,
+		openChangePass,
 		closeChangePass,
 	} = useContext(AuthContext);
 
 	const cls = [classes.Toolbar];
-	// const clsNav = [classes.nav];
+	const clsNav = [classes.nav];
 	if (expanded) {
 		cls.push(classes.expanded);
-		// clsNav.push(classes.expanded);
+		clsNav.push(classes.expanded);
 	}
 
-/*
 	const accountLinks = [
 		{
 			testId: "userLinksButtonLogout",
@@ -91,7 +90,6 @@ const Toolbar = ({ expanded, navExpandedHandler }) => {
 			},
 		},
 	];
-*/
 
 	return (
 		<>
@@ -105,14 +103,13 @@ const Toolbar = ({ expanded, navExpandedHandler }) => {
 				<UserLink
 					username={"usertest@glasswallsolutions.com"}
 					expanded={expanded}
-					// openPopup={() => setIsOpenPopup(true)}
-					// closePopup={() => setIsOpenPopup(false)}
+					openPopup={() => setIsOpenPopup(true)}
+					closePopup={() => setIsOpenPopup(false)}
 					externalStyles={classes.user}
 				/>
 				<ExpandButton expanded={expanded} clickHandler={navExpandedHandler} />
 			</section>
 
-{/*
 			<CSSTransition
 				in={isOpenPopup}
 				timeout={300}
@@ -133,7 +130,6 @@ const Toolbar = ({ expanded, navExpandedHandler }) => {
 					closePopupHover={() => setIsOpenPopup(false)}
 				/>
 			</CSSTransition>
-*/}
 
 			<ChangePassword
 				isOpenModal={isChangePass}

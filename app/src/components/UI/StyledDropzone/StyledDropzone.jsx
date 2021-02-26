@@ -53,7 +53,7 @@ export default function StyledDropzone({
 		onDrop,
 		noClick: loading,
 		noDrag: loading,
-		maxSize: 1e8,
+		maxSize: 1000.0e6,
 	});
 
 	const { promiseInProgress } = usePromiseTracker();

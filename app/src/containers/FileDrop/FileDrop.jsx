@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { useToasts } from "react-toast-notifications";
 import { trackPromise } from "react-promise-tracker";
 
-// import { validFileType } from "../../actions";
+import { validFileType } from "../../actions";
 import { engineApi, ResponseError } from "../../api";
 import { FileDropContext } from "../../context/fileDrop/fileDrop-context";
 
@@ -11,12 +11,12 @@ import classes from "./FileDrop.module.scss";
 import supporting from "../../data/fileDrop/supportedFileTypes.json";
 import messages from "../../data/fileDrop/messages.json";
 
-// import refreshIcon from "../../assets/svg/file-drop/refresh-button.svg";
+import refreshIcon from "../../assets/svg/file-drop/refresh-button.svg";
 
 import StyledDropzone from "../../components/UI/StyledDropzone/StyledDropzone";
 import Button from "../../components/UI/Button/Button";
 import RenderResults from "../../components/Results/RenderResults";
-// import IconButton from "../../components/UI/IconButton/IconButton";
+import IconButton from "../../components/UI/IconButton/IconButton";
 
 const FileDrop = () => {
 	const { addToast } = useToasts();
@@ -43,13 +43,13 @@ const FileDrop = () => {
 		// vendors.push(vendorName);
 		fileTypes[vIndex] = [];
 
-		vendorTypes.forEach((type) => {
+		vendorTypes.forEach((type, tIndex) => {
 			const typeName = Object.keys(type)[0];
 			const extensions = type[typeName];
 			fileTypes[vIndex].push(typeName);
 			extByTypes[vendorName + "-" + typeName] = extensions;
 
-			extensions.forEach((extension) => {
+			extensions.forEach((extension, eIndex) => {
 				accept.push(extension);
 			});
 		});
@@ -76,7 +76,19 @@ const FileDrop = () => {
 		// console.dir(accepted);
 
 		trackPromise(
-			engineApi.analyseFile(accepted)
+			validFileType(accepted)
+				.then((result) => {
+					// console.warn(` ----------- File Type is checked at ${new Date().toISOString()} -------------`);
+					if (!result) {
+						const messageText = messages["file-invalid-type"];
+						addToast(messageText, {
+							appearance: "warning",
+							autoDismiss: true,
+						});
+						return;
+					}
+					return engineApi.analyseFile(accepted);
+				})
 				.then((result) => {
 					// console.warn(` ----------- File Analysis is done ${new Date().toISOString()} -------------`);
 					const XMLParser = require("react-xml-parser");
@@ -133,21 +145,6 @@ const FileDrop = () => {
 		setShowResult(false);
 	};
 
-	let styledDropzone = <StyledDropzone
-		//externalStyles={classes.dropzone}
-		onDrop={handleDrop}
-		accept={accept}
-		loading={loading}
-	>
-		<div className={classes.message}>
-			Drop a file here to have it processed by Glasswall CDR
-		</div>
-		<div className={[classes.message, classes.reject].join(" ")}>
-			Please use a supported file type
-		</div>
-		<div className={[classes.image, classes.imageDrop].join(" ")} />
-		<Button testId="buttonFileDropSelectFile" externalStyles={classes.button}>SELECT A FILE</Button>
-	</StyledDropzone>;
 	return (
 		<section className={classes.FileDrop}>
 			<div className={classes.dropzoneWrap}>
@@ -162,7 +159,21 @@ const FileDrop = () => {
 							height: "100%",
 						}}
 					>
-						{styledDropzone}
+						<StyledDropzone
+							//externalStyles={classes.dropzone}
+							onDrop={handleDrop}
+							accept={accept}
+							loading={loading}
+						>
+							<div className={classes.message}>
+								Drop a file here to have it processed by Glasswall CDR
+							</div>
+							<div className={[classes.message, classes.reject].join(" ")}>
+								Please use a supported file type
+							</div>
+							<div className={[classes.image, classes.imageDrop].join(" ")} />
+							<Button testId="buttonFileDropSelectFile" externalStyles={classes.button}>SELECT A FILE</Button>
+						</StyledDropzone>
 						<div className={classes.infoBlock}>
 							<p>
 								Once the file has been uploaded, it is passed through the
@@ -174,9 +185,6 @@ const FileDrop = () => {
 				) : (
 						<>
 							<div className={[classes.dropzone, classes.processed].join(" ")}>
-								{styledDropzone}
-
-{/*
 								<div className={classes.results}>
 									<IconButton
 										externalStyles={classes.buttonRefresh}
@@ -196,15 +204,7 @@ const FileDrop = () => {
 											" "
 										)}
 									/>
-									<Button
-										testId="buttonFileDropViewResult"
-										onButtonClick={() => setShowResult(true)}
-										externalStyles={classes.button}
-									>
-										VIEW RESULT
-								</Button>
 								</div>
-*/}
 							</div>
 							<RenderResults
 								file={file}

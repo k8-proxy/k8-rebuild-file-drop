@@ -39,6 +39,8 @@ function RenderResults({
 		] = analysisReport.getElementsByTagName("gw:FileType");
 		const { name: fileName } = file;
 		const hasIssues = !!issues.length;
+		const hasSanitisations = !!sanitisations.length;
+		const hasRemediations = !!remediations.length;
 
 		var getAnalysisReport = () => {
 			const binaryData = [];
@@ -52,17 +54,13 @@ function RenderResults({
 			a.click();
 		};
 
-		if (
-			!isShowResult &&
-			(sanitisations.length || remediations.length || hasIssues)
-		) {
+		if (!isShowResult) {
 			return (
 				<>
 					<div data-test-id="divFileDropResults" className={classes.RenderResults} >
 						<SectionTitle externalStyles={classes.headline}>
 							Analysis Report
 						</SectionTitle>
-
 						<div className={classes.container}>
 							<ButtonsContainer externalStyles={classes.buttons}>
 								<Pdf targetRef={ref} filename={(file.name + "-analysis-report.pdf")}>
@@ -84,39 +82,18 @@ function RenderResults({
 							</ButtonsContainer>
 							<div ref={ref}>
 							<FileAttributes file={file} fileType={fileType} />
-							<RenderAnalysis
+							{hasSanitisations || hasRemediations || hasIssues ? <RenderAnalysis
 								remediations={remediations}
 								sanitisations={sanitisations}
 								issues={issues}
-							/>
+							/> : <SectionTitle>File is clean!</SectionTitle>}
+							<br/>
 							</div>
 						</div>
 					</div>
 				</>
 			);
 		}
-
-		return (
-			<CSSTransition
-				in={isShowResult}
-				timeout={300}
-				classNames={{
-					enterActive: classes.fadeEnterActive,
-					exitActive: classes.fadeExitActive,
-				}}
-				mountOnEnter
-				unmountOnExit
-			>
-				<div className={[classes.RenderResults, classes.result].join(" ")}>
-					<SectionTitle>File is clean!</SectionTitle>
-					<DownloadAnalysisReport
-						report={analysisReportString}
-						filename={fileName}
-					/>
-					<FileAttributes file={file} fileType={fileType} />
-				</div>
-			</CSSTransition>
-		);
 	}
 	return null;
 }
