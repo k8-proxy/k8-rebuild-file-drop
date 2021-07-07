@@ -9,7 +9,7 @@
 	border: none;
 
 	text-align: left;
-	background: transparent;
+	background: linear-gradient(to left, #6437b8 0%, #c22969 100%);
 	font-size: 1.6rem;
 	color: #fff;
 	transition: all 0.3s;
@@ -17,7 +17,7 @@
 	cursor: pointer;
 
 	background-repeat: no-repeat;
-	background-position: 0px -4px;
+	background-position: 0px 0px;
 
 	&:hover {
 		background-color: hsla(0, 100%, 100%, 0.1);
@@ -25,9 +25,9 @@
 
 	.active {
 		color: hsl(205, 74%, 18%);
-		background: white;
+		background: transparent;
 		background-repeat: no-repeat;
-		background-position: 0px -72px;
+		// background-position: 0px 0px;
 
 		&::before {
 			opacity: 1;
