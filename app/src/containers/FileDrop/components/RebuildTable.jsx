@@ -13,7 +13,7 @@ export default function RebuildTable(props){
         <TableBody>
           {props.rebuildFiles.map((row) => (
             <TableRow key={row.file.name}>
-              <TableCell  style={{width: '40%'}} component="th" scope="row">
+              <TableCell  style={{width: '40%'}} component="th" scope="row" title={row.file.name}>
                 {row.file.name.length> 20?  row.file.name.substring(0,20):  row.file.name}
               </TableCell>
               <TableCell style={{width: '30%'}} align="right"><button className="tableBtns viewResultBtn">View Result</button></TableCell>

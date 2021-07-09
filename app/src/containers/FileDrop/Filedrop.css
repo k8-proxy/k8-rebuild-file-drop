@@ -96,10 +96,10 @@
   overflow-y: auto;
 }
 div#cleanRebuildFiles .cleanRebuilddiv ul {
-  min-height: 400px;
+  min-height: 410px;
   width: 100%;
   float: none;
-  height: 400px;
+  height: 410px;
   overflow-y: auto;
 }
 div#cleanRebuildFiles {
@@ -132,10 +132,11 @@ img.unprocessedImg {
   background-color: #f7f9fc;
   color: #295c8b;
   text-align: left;
-  text-transform: uppercase;
+  text-transform: none;
   padding: 15px 15px;
   font-size: 16px;
   margin-top: 0;
+  font-weight: 600;
 }
 button.closeResult {
   position: absolute;
@@ -161,9 +162,9 @@ button.closeResult img {
   background-color: #f7f9fc;
   color: #295c8b;
   text-align: center;
-  text-transform: uppercase;
   padding: 15px 0px;
   font-size: 16px;
+  font-weight:600;
   margin-top: 0;
 }
 .inner-grabox.processing-result h3 {
@@ -183,7 +184,7 @@ button.closeResult img {
 }
 .clean-section .inner-grabox ul li .left-inner {
   width: 200px;
-  display: inline-block;
+  display: block;
   text-transform: capitalize;
 }
 .clean-section .inner-grabox ul li .right-inner {
@@ -207,13 +208,18 @@ button.closeResult img {
   background: #fff;
 }
 .rebuildTable tr th, .rebuildTable tr td, .MuiTableCell-root {
-    font-size: 14px !important;
+    font-size: 13px !important;
+    padding: 10px !important;
+    text-align: left !important;
+}
+tr.MuiTableRow-root:nth-child(even) {
+  background: #f7f9fc;
 }
 .tableBtns {
     border: 0;
     background: transparent;
     cursor: pointer;
-    padding: 6px 10px;
+    padding: 6px 6px;
 }
 button.tableBtns.downLoadCleanFilesBtn {
     color: #0db091;
@@ -259,13 +265,13 @@ button.tableBtns.viewResultBtn {
   border-radius: 10px;
   padding: 15px 8px 20px;
   color: #cbcfde;
-  margin-top: 42px;
+  margin-top: 10px;
 }
 .stactic-banner .white-inner a {
   color: #80dbd3;
 }
 .stactic-banner .white-inner ul {
-  margin: 22px auto 0;
+  margin: 40px auto 0;
   padding: 0px;
   list-style: none;
   text-align: center;
@@ -288,6 +294,7 @@ button.tableBtns.viewResultBtn {
 .stactic-banner .white-inner ul li p {
   padding: 0;
   margin: 8px 0 0 0;
+  font-weight: 600;
 }
 .stactic-banner .right-ban {
   width: 100%;
@@ -370,7 +377,7 @@ progress {
   height: 6px;
   position: absolute;
   bottom: 13px;
-  left: 40px;
+  left: 34px;
 }
 progress::-webkit-progress-bar {
   background-color: #f7f9fc;
@@ -385,7 +392,6 @@ progress::-webkit-progress-value {
 #loaded_n_total {
   position: relative;
   z-index: 2;
-  margin: 0 0 20px;
 }
 
 progress[value] {
@@ -450,20 +456,24 @@ progress[value] {
   color: #a4a4a4;
 }
 h3#status {
-  font-weight: 500;
+  font-weight: 600;
+  color: #295c8b;
+  font-size: 17px;
+  margin: 0 0 13px 0;
 }
 p#loaded_n_total {
   color: #cbcbcb;
+  margin: 0 0 7px 0;
 }
 div#_viewresult {
   position: absolute;
   top: 2px;
-  padding: 54px 20px;
+  padding: 91px 20px;
   width: 99%;
   height: auto;
   left: 2px;
   margin: 0 auto;
-  background: #e6e9ea;
+  background: #ffffff;
   text-align: center;
   display: block;
   border-radius: 20px;
@@ -552,7 +562,7 @@ div#_viewresult {
   right: 0px;
   padding: 118px 0;
   height: auto;
-  background: #e6e9ea;
+  background: #ffffff;
   left: 2px;
   z-index: 1;
   border-radius: 15px;
@@ -707,8 +717,8 @@ button.green-tick {
     padding: 100px;
   }
   .stactic-banner .left-ban h2 {
-    font-size: 48px;
-    padding-right: 100px;
+    font-size: 42px;
+    padding-right: 50px;
     line-height: 55px;
   }
   .stactic-banner .left-ban .white-inner {
@@ -774,6 +784,7 @@ button.green-tick {
     height: 360px;
     padding-top: 70px;
   }
+  .stactic-banner .white-inner ul li p{font-size: 11px;}
 }
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   .stactic-banner {

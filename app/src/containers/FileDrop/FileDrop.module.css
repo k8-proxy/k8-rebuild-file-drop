@@ -109,10 +109,6 @@
   width: 49%;
   position: relative;
   padding: 0px;
-  overflow: auto;
-  height: 84vh;
-  min-height: 84vh;
-  padding-bottom: 10px;
 }
 .filedropRight {
   float: right;

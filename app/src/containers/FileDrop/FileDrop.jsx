@@ -24,6 +24,25 @@ export default function FileDrop() {
     setResults(list);
   }  
 
+  const getRightBanner=()=>{
+    return(       
+    <div className="stactic-banner">
+    <div className="left-ban">
+      <h2>Test drive Glasswall CDR</h2>
+      <p className="desktop-text-cdr">
+        Watch our CDR platform instantly clean and rebuild one of your
+        files. Simply upload your own file (or drag and drop a sample
+        file from below) to get started.
+      </p>
+      <p className="mobile-text-cdr">
+        Watch our CDR platform instantly clean and rebuild one of your
+        files. Simply upload your own file to get started.
+      </p>
+    </div>
+  </div>
+  )
+  }
+
   return (
     <>
       <div className={classes.containerWrap}>
@@ -40,21 +59,8 @@ export default function FileDrop() {
 
           </div>
           <div className={classes.filedropRight}>
-            <div className="stactic-banner">
-              <div className="left-ban">
-                <h2>Test drive Glasswall CDR</h2>
-                <p className="desktop-text-cdr">
-                  Watch our CDR platform instantly clean and rebuild one of your
-                  files. Simply upload your own file (or drag and drop a sample
-                  file from below) to get started.
-                </p>
-                <p className="mobile-text-cdr">
-                  Watch our CDR platform instantly clean and rebuild one of your
-                  files. Simply upload your own file to get started.
-                </p>
-              </div>
-            </div>
-            {results.length> 0 && <RebuildFilesReady rebuildFiles ={results}/> }
+          {results.length == 0 ?getRightBanner() 
+          :<RebuildFilesReady rebuildFiles ={results}/> }
           </div>
         </div>
       </div>
