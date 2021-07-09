@@ -24,9 +24,9 @@ export default function RebuildFilesReady(props) {
               </div>
             </div>
             <div className="two-btn lastbtns">
-              <ButtonComponent text={"Try Another file"} />
+              <ButtonComponent text="Try Another file" onClicked={()=>{props.dropAnotherFile()}} />
               <ButtonComponent
-                text={"Download All Clean Files"}
+                text="Download All Clean Files"
                 classname={"green"}
               />
             </div>

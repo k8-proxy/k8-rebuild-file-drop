@@ -1,5 +1,5 @@
-import React        from "react";
-import pdficon      from "../../../assets/pdf-icon.png";
+import React, { useState, useEffect } from "react";
+import pdficon                        from "../../../assets/pdf-icon.png";
 import xlxsicon     from "../../../assets/excel-icon.png";
 import wordicon     from "../../../assets/word-icon.png";
 import ppticon      from "../../../assets/ppt-icon.png";
@@ -10,12 +10,19 @@ import                   "../Filedrop.css";
 
 
 export default function DragableFile() {
+
+  const triggerFileInput=(event) =>{
+    document.getElementById('file-1').click();
+    event.stopPropagation();
+    console.log("event:" + event)
+  }
+
   return (
     <>
       <div className="white-inner">
         <p>
           Drag a sample file into the box, or{" "}
-          <button id="tryyourown">try your own</button>
+          <button id="tryyourown" onClick={triggerFileInput} >try your own</button>
         </p>
         <ul>
           <SampleFile

@@ -24,6 +24,11 @@ export default function FileDrop() {
     setResults(list);
   }  
 
+  const dropAnotherFile = () => {
+    setResults([]);
+    console.log("results" + results.length)
+
+  }
   const getRightBanner=()=>{
     return(       
     <div className="stactic-banner">
@@ -49,18 +54,18 @@ export default function FileDrop() {
         <div className={classes.row}>
           <div className={classes.filedropLeft}>
             <div className="stactic-banner">
-              <DragDrop setAnalysisResult={setAnalysisResult} setResults = {setResults}/>
+              <DragDrop setAnalysisResult={setAnalysisResult} results = {results}/>
               {results.length > 0 && <ViewResult setResults = {setResults}/> }
               {promiseInProgress && <UploadingLoader />}
-              {(promiseInProgress ||  results.length > 0)  && <ProgressBar status ={promiseInProgress}/>}
-              <DragableFile />
+              {/* {(promiseInProgress ||  results.length > 0)  && <ProgressBar status ={promiseInProgress}/>} */}
+              {/* <DragableFile /> */}
             </div>
             {/* {processingResult && <ProcessingResult /> } */}
 
           </div>
           <div className={classes.filedropRight}>
           {results.length == 0 ?getRightBanner() 
-          :<RebuildFilesReady rebuildFiles ={results}/> }
+          :<RebuildFilesReady rebuildFiles ={results} dropAnotherFile = {dropAnotherFile} /> }
           </div>
         </div>
       </div>
