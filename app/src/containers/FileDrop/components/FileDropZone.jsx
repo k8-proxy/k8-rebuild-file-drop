@@ -107,6 +107,8 @@ const uploadHandler=(event)=>{
           </div>
           <div className="file-text2">
             Supports: popular file types, up to 6MB
+            <br></br>
+            Maximum of 50 
                 
           </div>
         </div>

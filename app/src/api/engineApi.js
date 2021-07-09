@@ -1,6 +1,6 @@
 import ResponseError from './ResponseError';
 
-const analysisSuffix = '/api/Analyse/base64';
+const analysisSuffix = '/api/analyse/base64';
 const rebuildSuffix = '/api/Rebuild/base64';
 
 const analyseFile = (file) => {

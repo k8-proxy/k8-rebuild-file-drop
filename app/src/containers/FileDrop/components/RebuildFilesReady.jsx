@@ -16,11 +16,11 @@ export default function RebuildFilesReady(props) {
               <div className="mp-padding">
                 <ul>
                 <RebuildTable rebuildFiles={props.rebuildFiles}/>
-                </ul>
                 <div className="unprocessedFiles">
                     <h3>Unprocessed Files</h3>
                     <h4><img src={unprocessImg} className="unprocessedImg" alt="" /> <span>Samlefile.docx</span></h4>
                 </div>
+                </ul>
               </div>
             </div>
             <div className="two-btn lastbtns">
