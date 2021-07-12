@@ -1,8 +1,8 @@
 import React            from "react";
-import docicon          from "../../../assets/icon-documents-tick.png";
-import refreshicon      from "../../../assets/refresh.png";
-import ButtonComponent  from "../button/Button";
-import                  "../Filedrop.css";
+import docicon          from "../../../../assets/icon-documents-tick.png";
+import refreshicon      from "../../../../assets/refresh.png";
+import ButtonComponent  from "../../button/Button";
+import                  "./ViewResult.css";
 
 export default function ViewResult(props) {
   return (
@@ -12,7 +12,7 @@ export default function ViewResult(props) {
           id={"refreshBtn"}
           imgsrc={refreshicon}
           classname={"refresh"}
-          onClicked ={()=>{props.setResults([])}}
+          onClicked ={()=>{props.dropAnotherFile()}}
         />
         <div className="img-successful">
           <img src={docicon} alt="" />

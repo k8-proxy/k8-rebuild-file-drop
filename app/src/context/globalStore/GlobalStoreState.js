@@ -13,7 +13,7 @@ const userfileList = userfiles;
 
 export const GlobalStoreState = ({ children }) => {
 	const initialState = {
-		title: "Glasswall React App",
+		title: "Glasswall App",
 		userfiles: userfileList,
 		fileFilter: fileFilter,
 		riskFilter: riskFilter,

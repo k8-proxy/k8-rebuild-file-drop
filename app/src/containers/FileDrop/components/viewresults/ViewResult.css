@@ -1,0 +1,88 @@
+div#_viewresult {
+    position: absolute;
+    top: 2px;
+    padding: 91px 20px;
+    width: 99%;
+    height: auto;
+    left: 2px;
+    margin: 0 auto;
+    background: #ffffff;
+    text-align: center;
+    display: block;
+    border-radius: 20px;
+  }
+  .img-successful img {
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+  }
+  .file-text-3 {
+    color: #295c8b;
+    font-size: 21px;
+  }
+  .view-result-btn {
+    display: inline-block;
+    text-transform: uppercase;
+    width: 200px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 15px 20px;
+    background-color: #0db091;
+    color: #fff;
+    text-align: center;
+    font-size: 17px;
+    margin-top: 25px;
+    text-decoration: none;
+    border: 0;
+  }
+  .inputfile:focus + label,
+  .inputfile.has-focus + label {
+    outline: 0px dotted #000 !important;
+    outline: -webkit-focus-ring-color auto 0px !important;
+  }
+  .status-action-btns {
+    position: absolute;
+    right: 17px;
+    top: 19px;
+    z-index: 11;
+  }
+  .status-action-btns button,
+  #_viewresult button.refresh {
+    border: 0;
+    background: transparent;
+    padding: 0;
+    position: relative;
+    margin: 0 0px;
+    cursor: pointer;
+  }
+  .status-action-btns button img {
+    width: 40px;
+  }
+  
+  #_viewresult button.refresh {
+    position: absolute;
+    right: 15px;
+    vertical-align: middle;
+    top: 15px;
+    padding: 10px 20px;
+    background: #ffffff;
+    min-width: 45px;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 31px;
+    border-radius: 6px;
+  }
+  #_viewresult button.refresh img {
+    width: 22px;
+    position: relative;
+    padding: 0px 0px;
+    vertical-align: middle;
+    margin: 0 0px 0 0;
+    display: inline-block;
+    top: 0px;
+    cursor: pointer;
+  }
+  

@@ -102,13 +102,13 @@ const Toolbar = ({ expanded, navExpandedHandler }) => {
 					items={navLinks}
 					externalStyles={classes.linkList}
 				/>
-				<UserLink
+				{/* <UserLink
 					username={"usertest@glasswallsolutions.com"}
 					expanded={expanded}
 					// openPopup={() => setIsOpenPopup(true)}
 					// closePopup={() => setIsOpenPopup(false)}
 					externalStyles={classes.user}
-				/>
+				/> */}
 				<ExpandButton expanded={expanded} clickHandler={navExpandedHandler} />
 			</section>
 

@@ -1,8 +1,8 @@
 import React            from "react";
-import ButtonComponent  from "../button/Button";
-import unprocessImg     from '../../../assets/word-icon.png'
-import RebuildTable     from "./RebuildTable";
-import                       "../Filedrop.css";
+import ButtonComponent  from "../../button/Button";
+import unprocessImg     from '../../../../assets/word-icon.png'
+import RebuildTable     from "../rebuildtable/RebuildTable";
+import                       "./ProcessingResult.css";
 
 
 export default function RebuildFilesReady(props) {
@@ -16,15 +16,18 @@ export default function RebuildFilesReady(props) {
               <div className="mp-padding">
                 <ul>
                 <RebuildTable rebuildFiles={props.rebuildFiles}/>
-                <div className="unprocessedFiles">
+                {
+                props.unprocessed.length > 0 && 
+                <div className="unprocessedFiles" >
                     <h3>Unprocessed Files</h3>
                     <h4><img src={unprocessImg} className="unprocessedImg" alt="" /> <span>Samlefile.docx</span></h4>
                 </div>
+                }
                 </ul>
               </div>
             </div>
             <div className="two-btn lastbtns">
-              <ButtonComponent text={"Try Another file"} />
+              <ButtonComponent text={"Try Another file"} onClicked ={()=>{props.dropAnotherFile()}}/>
               <ButtonComponent
                 text={"Download All Clean Files"}
                 classname={"green"}
