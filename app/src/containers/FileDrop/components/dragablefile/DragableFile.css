@@ -1,0 +1,47 @@
+.stactic-banner .white-inner {
+    /* background: #fff; */
+    text-align: center;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+    border-radius: 10px;
+    padding: 15px 8px 20px;
+    color: #cbcfde;
+    margin-top: 10px;
+  }
+  .stactic-banner .white-inner a {
+    color: #80dbd3;
+  }
+  .stactic-banner .white-inner ul {
+    margin: 40px auto 0;
+    padding: 0px;
+    list-style: none;
+    text-align: center;
+  }
+  .stactic-banner .white-inner ul li {
+    display: inline-block;
+    vertical-align: middle;
+    width: 16.33%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    color: #000000;
+    font-size: 13.5px;
+    padding: 0px;
+  }
+  .stactic-banner .white-inner ul li a {
+    color: #000;
+    text-decoration: none;
+  }
+  .stactic-banner .white-inner ul li p {
+    padding: 0;
+    margin: 8px 0 0 0;
+    font-weight: 600;
+  }
+  .stactic-banner .white-inner ul li a img {
+    width: 56px;
+    height: 56px;
+  }
+  .stactic-banner .white-inner ul li a img:first-child {
+    width: auto;
+  }

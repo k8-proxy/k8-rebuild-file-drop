@@ -1,17 +1,17 @@
-import React, { useState, useEffect }    from "react";
-import { trackPromise }       from "react-promise-tracker";
-import { useToasts }          from "react-toast-notifications";
+import React, {useState, useEffect, useRef}                        from "react";
+import { trackPromise }             from "react-promise-tracker";
+import { useToasts }                from "react-toast-notifications";
 import { usePromiseTracker }  from "react-promise-tracker";
 
 // import { validFileType } from "../../actions";
-import { engineApi, ResponseError } from "../../../api";
-import supporting                   from "../../../data/fileDrop/supportedFileTypes.json";
-import messages                     from "../../../data/fileDrop/messages.json";
-import DragableFile                 from "./DragableFile";
-import ProgressBar                  from "./ProgressBar";
-
-
+import { engineApi, ResponseError } from "../../../../api";
+import supporting                   from "../../../../data/fileDrop/supportedFileTypes.json";
+import messages                     from "../../../../data/fileDrop/messages.json";
+import DragableFile                 from '../dragablefile/DragableFile';
+import ProgressBar                 from '../progressbar/ProgressBar';
+import                                   './FileDropZone.css';
 const XMLParser = require("react-xml-parser");
+
 
 const TOTAL_FILE_LIMIT_MB = 50;
 
@@ -19,13 +19,39 @@ export default function FileDropzone(props) {
   const { promiseInProgress } = usePromiseTracker({ delay: 100 });
   const { addToast } = useToasts();
   const [status, setStatus] = useState(false);
+  const dropRef = useRef();
 
-  useEffect(() => { setStatus(false)}, []) 
+ 
+
+
+  useEffect(() => { 
+    console.log("useEffect" + dropRef.current);
+    let div = dropRef.current
+    div.addEventListener('dragenter', handleDragIn)
+    div.addEventListener('dragleave', handleDragOut)
+    div.addEventListener('dragover', handleDrag)
+    div.addEventListener('drop', handleDrop)
+    div.addEventListener('change', uploadHandler)
+    
+  }, []) 
+
+  
 
   const getFileSizeInMB = (file) => {
     const size_of_file = file.size / 1000000;
     return size_of_file;
   };
+
+  const fileSize = (size) => {
+    if (size === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+    const i = Math.floor(Math.log(size) / Math.log(k));
+    return parseFloat((size / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+}
+const fileType = (fileName) => {
+  return fileName.substring(fileName.lastIndexOf('.') + 1, fileName.length) || fileName;
+}
 
   const analyseFile = (accepted) => {
     trackPromise(
@@ -81,28 +107,66 @@ export default function FileDropzone(props) {
   };
 
   const uploadHandler = (event) => {
+    console.log("uploadHandler")
     event.preventDefault();
+    event.stopPropagation()
     const fileList = event.target.files;
     for (const file of fileList) {
       // if (getFileSizeInMB(file) > FILE_LIMIT_MB) {
       // }
+      console.log("uploadHandler:" + file.name)
       analyseFile(file);
     }
+    event.target.value = "";
   };
+
+  const handleDrop = (event) => {
+    console.log("dropHandler")
+    event.preventDefault()
+    event.stopPropagation()
+    if (
+      event.dataTransfer &&
+      event.dataTransfer.types[0] == "Files" &&
+      event.dataTransfer.types.length == 1
+    ) {
+      var file = event.dataTransfer.files[0]; //_("file-1").files[0];
+
+      //Files smaller than 6MB - Normal
+      if (getFileSizeInMB(file) > TOTAL_FILE_LIMIT_MB) {
+        //resetRebuild(true);
+        //displayError("File too big. File upto 15 MB is supported");
+        return;
+      }
+      //displayRebuildUI();
+      analyseFile(file);
+      event.dataTransfer.value = "";
+    } else {
+      var url = event.originalEvent.dataTransfer.getData("url");
+      //downloadFile(url);
+    }
+   
+  };
+
+  const handleDrag = (e) => {e.preventDefault()
+    e.stopPropagation()}
+  const handleDragIn = (e) => {e.preventDefault()
+    e.stopPropagation()}
+  const handleDragOut = (e) => {e.preventDefault()
+    e.stopPropagation()}
 
 
   return (
     <>
-      <div id="dropzone-file">
+      <div id="dropzone-file"  ref = {dropRef}>
         <div id="_dragsection" className="dz-default dz-message">
           <div className="img-pnl"></div>
           <div className="file-text">
             Drop a file here, or <span>browse</span>
           </div>
           <div className="file-text2">
-            Supports: popular file types, up to 6MB
+            Supports: popular file types, up to 15MB
             <br></br>
-            Maximum of 50
+            Maximum of 50 files or 5 folders
           </div>
         </div>
         <input
@@ -111,7 +175,6 @@ export default function FileDropzone(props) {
           id="file-1"
           className="inputfile inputfile-1"
           onChange={uploadHandler}
-          multiple
         />
         <label id="inputFileLabel" for="file-1"></label>
       </div>

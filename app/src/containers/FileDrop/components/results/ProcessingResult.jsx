@@ -1,8 +1,9 @@
 import React              from 'react'
-import fileimg            from "../../../assets/icon-certificate.png";
-import ButtonComponent    from '../button/Button';
-import cancelIcon         from '../../../assets/cancel.png'
-import                          "../Filedrop.css";
+import fileimg            from "../../../../assets/icon-certificate.png";
+import ButtonComponent    from '../../button/Button';
+import cancelIcon         from '../../../../assets/cancel.png';
+import tick               from '../../../../assets/tick.png';
+import                          "./ProcessingResult.css";
 
 export default function ProcessingResult(){
   
@@ -43,11 +44,21 @@ export default function ProcessingResult(){
 
                     <div className="inner-grabox">
                       <h3>Risky Content Cleaned</h3>
-                      <ul id="_sanitisedItems"></ul>
+                      <ul id="_sanitisedItems">
+                        <li><img src={tick} className="tick-li" alt="tick" /><span>Embeded file present in OLE object </span></li>
+                        <li><img src={tick} className="tick-li" alt="tick" /><span>Embeded file present in OLE object </span></li>
+                        <li><img src={tick} className="tick-li" alt="tick" /><span>Embeded file present in OLE object </span></li>
+                        <li><img src={tick} className="tick-li" alt="tick" /><span>Embeded file present in OLE object </span></li>
+                      </ul>
                     </div>
                     <div className="inner-grabox">
                       <h3>Objects and structures rebuilt</h3>
-                      <ul id="_remedyItems"></ul>
+                      <ul id="_remedyItems">
+                      <li><img src={tick} className="tick-li" alt="tick" /><span>Embeded file present in OLE object </span></li>
+                      <li><img src={tick} className="tick-li" alt="tick" /><span>Embeded file present in OLE object </span></li>
+                      <li><img src={tick} className="tick-li" alt="tick" /><span>Embeded file present in OLE object </span></li>
+                      <li><img src={tick} className="tick-li" alt="tick" /><span>Embeded file present in OLE object </span></li>
+                      </ul>
                     </div>
                   </div>
                 </div>

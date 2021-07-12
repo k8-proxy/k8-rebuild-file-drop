@@ -101,18 +101,4 @@
 }
 
 /*    new file css     */
-.containerWrap {
-  position: relative;
-}
-.filedropLeft {
-  float: left;
-  width: 49%;
-  position: relative;
-  padding: 0px;
-}
-.filedropRight {
-  float: right;
-  width: 49%;
-  position: relative;
-  padding: 0px;
-}
+

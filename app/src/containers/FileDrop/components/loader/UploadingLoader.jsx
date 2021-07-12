@@ -1,5 +1,5 @@
 import React from "react";
-import            "../Filedrop.css";
+import            "./UploadingLoader.css";
 
 export default function UploadingLoader() {
   return (
