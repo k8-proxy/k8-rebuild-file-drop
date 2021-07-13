@@ -1,6 +1,6 @@
 {
   "include": [
-    "src/**/*"
+    "src"
   ],
   "exclude": [
     "node_modules",
@@ -9,7 +9,7 @@
   "compilerOptions": {
     "target": "es6",
     "module": "esnext",
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "strict": true,
     "esModuleInterop": true,
     "strictNullChecks": false,
@@ -25,6 +25,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true
   }
 }
