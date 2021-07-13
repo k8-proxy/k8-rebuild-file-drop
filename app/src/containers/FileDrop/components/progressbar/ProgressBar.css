@@ -1,64 +1,64 @@
 .progress-bar {
-    height: 104px;
-    display: block;
-    visibility: visible;
-    border: 2px solid #f0f1f4;
-    background: #f7f9fc;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    position: relative;
-    padding: 20px 35px;
-    box-sizing: border-box;
-    margin-top: 15px;
-  }
-  .progress-bar.visible {
-    visibility: visible;
-  }
-  progress[value]::-webkit-progress-bar {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 130px;
-    background-color: #f7f9fc;
-    -moz-border-radius: 15px;
-    -webkit-border-radius: 15px;
-    border-radius: 15px;
-  }
-  progress {
-    width: 89%;
-    height: 6px;
-    position: absolute;
-    bottom: 13px;
-    left: 34px;
-  }
-  progress::-webkit-progress-bar {
-    background-color: #f7f9fc;
-    border-radius: 15px;
-  }
-  progress::-webkit-progress-value {
-    background-color: #f7f9fc;
-    border-radius: 15px;
-  }
-  
-  #status,
-  #loaded_n_total {
-    position: relative;
-    z-index: 2;
-  }
-  
-  progress[value] {
-    color: #8fecce !important;
-  }
-  
-  h3#status {
-    font-weight: 600;
-    color: #295c8b;
-    font-size: 17px;
-    margin: 0 0 13px 0;
-  }
-  p#loaded_n_total {
-    color: #cbcbcb;
-    margin: 0 0 7px 0;
-  }
+  height: 85px;
+  display: block;
+  visibility: visible;
+  border: 2px solid #f0f1f4;
+  background: #f7f9fc;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  position: relative;
+  padding: 10px 33px;
+  box-sizing: border-box;
+  margin-top: 20px;
+}
+.progress-bar.visible {
+  visibility: visible;
+}
+progress[value]::-webkit-progress-bar {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 130px;
+  background-color: #f7f9fc;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+}
+progress {
+  width: 89%;
+  height: 6px;
+  position: absolute;
+  bottom: 13px;
+  left: 34px;
+}
+progress::-webkit-progress-bar {
+  background-color: #f7f9fc;
+  border-radius: 15px;
+}
+progress::-webkit-progress-value {
+  background-color: #f7f9fc;
+  border-radius: 15px;
+}
+
+#status,
+#loaded_n_total {
+  position: relative;
+  z-index: 2;
+}
+
+progress[value] {
+  color: #8fecce !important;
+}
+
+h3#status {
+  font-weight: 400;
+  color: #11497c;
+  font-size: 17px;
+  margin: 0 0 13px 0;
+}
+p#loaded_n_total {
+  color: #cbcbcb;
+  margin: 0 0 7px 0;
+}

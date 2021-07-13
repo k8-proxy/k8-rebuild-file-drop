@@ -13,13 +13,14 @@ const NavigationItem = ({
 	children,
 }) => {
 	let link = (
-		<NavLink			
+		<NavLink
 			to={path}
 			activeClassName={classes.active}
 			exact={exact}
 			onClick={clicked}
 			style={{
 				backgroundImage: `url(${icon})`,
+				backgroundPosition: "15px 20px",
 			}}
 		>
 			{children}

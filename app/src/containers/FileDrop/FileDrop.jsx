@@ -82,14 +82,14 @@ export default function FileDrop() {
       <div className="containerWrap">
         <div className="row">
           <div className="filedropLeft">
-            <div className="stactic-banner">
+            {!showResult && <div className="stactic-banner">
               <DragDrop
                 setAnalysisResult={setAnalysisResult}
                 results = {processed}
               />
               {processed.length > 0 && <ViewResult dropAnotherFile={dropAnotherFile}/>}
               {promiseInProgress && <UploadingLoader />}
-            </div>
+            </div>}
             {showResult && 
 
             // <RenderResults
