@@ -1,38 +1,38 @@
 {
     "files":[
         {
-            "path": "images/PDF_Demo_File.pdf",
+            "path": "sample/PDF_Demo_File.pdf",
             "name": "Sample.pdf",
             "icon": "pdficon"
            
         },
         {
-            "path": "images/Word_Demo_File.docx",
+            "path": "sample/Word_Demo_File.doc",
             "name": "Sample.docx",
             "icon": "wordicon"
            
         },
         {
-            "path": "images/PowerPoint_Demo_File.ppt",
+            "path": "sample/PowerPoint_Demo_File.ppt",
             "name": "Sample.pptx",
             "icon": "ppticon"
            
         }
         ,
         {
-            "path": "images/Excel_Demo_File.xls",
+            "path": "sample/Excel_Demo_File.xls",
             "name": "Sample.xlsx",
             "icon": "xlxsicon"
            
         },
         {
-            "path": "images/Excel_Demo_File.xls",
+            "path": "sample/Excel_Demo_File.xls",
             "name": "Sample.zip",
             "icon": "samplezip"
            
         },
         {
-            "path": "images/Excel_Demo_File.xls",
+            "path": "sample/Excel_Demo_File.xls",
             "name": "Sample Folder",
             "icon": "samplefolder"
            

@@ -15,7 +15,7 @@ export default function RebuildFilesReady(props) {
             <div className="cleanRebuilddiv">
               <div className="mp-padding">
                 <ul>
-                <RebuildTable rebuildFiles={props.rebuildFiles}/>
+                <RebuildTable rebuildFiles={props.rebuildFiles} viewResult = {props.viewResult}/>
                 {
                 props.unprocessed.length > 0 && 
                 <div className="unprocessedFiles" >
