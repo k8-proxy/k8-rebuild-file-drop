@@ -15,7 +15,7 @@ export default function RebuildFilesReady(props) {
             <div className="cleanRebuilddiv">
               <div className="mp-padding">
                 <ul>
-                <RebuildTable rebuildFiles={props.rebuildFiles} viewResult = {props.viewResult}/>
+                <RebuildTable rebuildFiles={props.rebuildFiles} viewResult = {props.viewResult} downloadClean = {props.downloadClean}/>
                 {
                 props.unprocessed.length > 0 && 
                 <div className="unprocessedFiles" >
@@ -27,9 +27,14 @@ export default function RebuildFilesReady(props) {
               </div>
             </div>
             <div className="two-btn lastbtns">
-              <ButtonComponent text={"Try Another file"} onClicked ={()=>{props.dropAnotherFile()}}/>
+              <ButtonComponent 
+              text={"Try Another file"} 
+              loader = {false}
+              onClicked ={()=>{props.dropAnotherFile()}}
+              />
               <ButtonComponent
                 text={"Download All Clean Files"}
+                loader = {false}
                 classname={"green"}
               />
             </div>

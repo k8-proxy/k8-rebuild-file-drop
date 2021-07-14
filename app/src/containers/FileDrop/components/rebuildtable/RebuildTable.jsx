@@ -18,7 +18,7 @@ export default function RebuildTable(props){
                 {row.file.name.length> 20?  row.file.name.substring(0,20):  row.file.name}
               </TableCell>
               <TableCell onClick={()=>{props.viewResult(index)}} style={{width: '25%'}} align="right"><button className="tableBtns viewResultBtn">View Result</button></TableCell>
-              <TableCell style={{width: '40%'}} align="right"><button className="tableBtns downLoadCleanFilesBtn">Download Clean File</button></TableCell>
+              <TableCell onClick={()=>{props.downloadClean(index)}} style={{width: '40%'}} align="right"><button className="tableBtns downLoadCleanFilesBtn">Download Clean File</button></TableCell>
             </TableRow>
           ))}
         </TableBody>

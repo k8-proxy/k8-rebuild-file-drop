@@ -17,7 +17,7 @@
   border-radius: 15px;
 }
 .inputfile + label {
-  height: 280px;
+  height: 300px;
   border: 2px dashed rgb(209 209 209);
 }
 

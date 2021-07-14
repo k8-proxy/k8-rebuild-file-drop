@@ -1,21 +1,24 @@
-import React              from 'react'
-import fileimg            from "../../../../assets/icon-certificate.png";
-import ButtonComponent    from '../../button/Button';
-import cancelIcon         from '../../../../assets/cross.svg';
-import tick               from '../../../../assets/tick.png';
-import                          "./ProcessingResult.css";
-import { engineApi }      from "../../../../api";
-import { trackPromise }     from "react-promise-tracker";
+import React            from "react";
+import fileimg          from "../../../../assets/icon-certificate.png";
+import ButtonComponent  from "../../button/Button";
+import cancelIcon       from "../../../../assets/cross.svg";
+import tick             from "../../../../assets/tick.png";
+import { engineApi }    from "../../../../api";
+import { trackPromise } from "react-promise-tracker";
+import                       "./ProcessingResult.css";
+import { useState } from "react";
 
 export default function ProcessingResult({
-	file,
-	analysisReport,
-	analysisReportString,
-	validation,
+  file,
+  analysisReport,
+  analysisReportString,
+  validation,
   onAnotherFile,
-	hideResult,
-}){
-  
+  hideResult,
+}) {
+
+  const [showLoader, SetShowLoader] = useState(false);
+
   const getFileSize = (bytes, decimals = 2) => {
     if (bytes === 0) return "0 Bytes";
 
@@ -26,73 +29,76 @@ export default function ProcessingResult({
     const i = Math.floor(Math.log(bytes) / Math.log(k));
 
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
-  } 
-  
+  };
+
   const getAnalysisReport = (analysisReport) => {
-		// debugger;
-		const binaryData = [];
-		binaryData.push(analysisReportString);
-		let url = window.URL.createObjectURL(new Blob(binaryData, { type: "text/xml" }));
-		let a = document.createElement('a');
-		a.href = url;
-		a.download = file.name + ".xml";
-		a.click();
-	}
+    // debugger;
+    const binaryData = [];
+    binaryData.push(analysisReportString);
+    let url = window.URL.createObjectURL(
+      new Blob(binaryData, { type: "text/xml" })
+    );
+    let a = document.createElement("a");
+    a.href = url;
+    a.download = file.name + ".xml";
+    a.click();
+  };
 
-  
+  const getProtectedFile = () => {
+    // debugger;
+    SetShowLoader(true);
+    trackPromise(
+      engineApi
+        .protectFile(file)
+        .then((blob) => {
+          let url = window.URL.createObjectURL(blob);
+          let a = document.createElement("a");
+          a.href = url;
+          a.download = file.name;
+          a.click();
+          SetShowLoader(false);
+        })
+        .catch((error) => {
+          // debugger;
+          console.log(error.message);
+          SetShowLoader(false);
+        })
+    );
+  };
 
-	const getProtectedFile = () => {
-		// debugger;
-		trackPromise(
-			engineApi.protectFile(file)
-				.then(blob => {
-					let url = window.URL.createObjectURL(blob);
-					let a = document.createElement('a');
-					a.href = url;
-					a.download = file.name;
-					a.click();
-				})
-				.catch((error) => {
-					// debugger;
-					console.log(error.message)
-				}))
-	}
-
-  const getItems=(list)=>{
-      // var items = ;
-      return 
+  const getItems = (list) => {
+    // var items = ;
+    return;
     //   var result = items.map((item, index)=>{
     //     var data = items[index];
     //     var tag = data.getElementsByTagName('gw:TechnicalDescription');
     //     var tagIndex = tag[0]
     //     var content = tagIndex.value
-        
+
     // })
     // for (var i = 0; i < items.length; i++) {
-      
+
     // }
     // return result;
-  }
+  };
 
   if (file && analysisReport) {
-		const sanitisations = analysisReport.getElementsByTagName(
-			"gw:SanitisationItem"
-		);
-    console.log("sanitisations  length" +  sanitisations.length)
-		const _remediations = analysisReport.getElementsByTagName("gw:RemedyItem");
+    const sanitisations = analysisReport.getElementsByTagName(
+      "gw:SanitisationItem"
+    );
+    console.log("sanitisations  length" + sanitisations.length);
+    const _remediations = analysisReport.getElementsByTagName("gw:RemedyItem");
     // const _remediations = Object.values(remediations).filter(obj =>
     //   obj.textContent && obj.textContent.length > 0
     // );
 
+    console.log(" remediations.length" + _remediations.length);
 
-    console.log(" remediations.length" +  _remediations.length)
-   
-		const issues = analysisReport.getElementsByTagName("gw:IssueItem");
-		const [
-			{ value: fileType } = { value: "unknown" },
-		] = analysisReport.getElementsByTagName("gw:FileType");
-		const { name: fileName } = file;
-		const hasIssues = !!issues.length;
+    const issues = analysisReport.getElementsByTagName("gw:IssueItem");
+    const [{ value: fileType } = { value: "unknown" }] =
+      analysisReport.getElementsByTagName("gw:FileType");
+    const { name: fileName } = file;
+    const hasIssues = !!issues.length;
 
     return (
       <>
@@ -101,10 +107,11 @@ export default function ProcessingResult({
             <div className="clean-section">
               <div className="inner-grabox processing-result">
                 <h3>
-                  Processing Result
+                  Processing Result  {sanitisations.length == 0 &&  _remediations.length == 0 && "   -    File is Clean!"}
                   <ButtonComponent
                     classname={"closeResult"}
                     imgsrc={cancelIcon}
+                    loader = {false}
                     onClicked={() => {
                       hideResult();
                     }}
@@ -116,17 +123,26 @@ export default function ProcessingResult({
                   </div>
                   <ul>
                     <li>
-                      <span className="left-inner">File name: {file.name}</span>
+                      <span className="left-inner">
+                        <span className="file_label">File name:</span>
+                        <span className="file_name">{file.name}</span>
+                      </span>
                       <span id="_filename" className="right-inner"></span>
                     </li>
                     <li>
                       <span className="left-inner">
-                        File size: {getFileSize(file.size)}
+                        <span className="file_label">File size:</span>
+                        <span className="file_name">
+                          {getFileSize(file.size)}
+                        </span>
                       </span>
                       <span id="_filesize" className="right-inner"></span>
                     </li>
                     <li>
-                      <span className="left-inner">Type: {fileType}</span>
+                      <span className="left-inner">
+                        <span className="file_label">Type:</span>
+                        <span className="file_name"> {fileType}</span>
+                      </span>
                       <span id="_filetype" className="right-inner"></span>
                     </li>
                   </ul>
@@ -134,14 +150,16 @@ export default function ProcessingResult({
                     <ButtonComponent
                       text={"Download Clean File"}
                       classname={"green"}
+                      loader = {showLoader}
                       onClicked={() => {
-                        getProtectedFile()
+                        getProtectedFile();
                       }}
                     />
                     <ButtonComponent
                       text={"XML Report"}
+                      loader = {false}
                       onClicked={() => {
-                        getAnalysisReport()
+                        getAnalysisReport();
                       }}
                     />
                   </div>
@@ -186,5 +204,5 @@ export default function ProcessingResult({
         </div>
       </>
     );
-}
+  }
 }

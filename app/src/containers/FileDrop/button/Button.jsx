@@ -9,7 +9,8 @@ export default function ButtonComponent(props) {
         className={props.classname}
         onClick={props.onClicked}
       >
-        <img src={props.imgsrc} alt="" /> {props.text}
+        {props.imgsrc && <img src={props.imgsrc} alt="" />} 
+        {props.loader && <div id="loader-protected" class="loader"></div>}{props.text}
       </button>
     </>
   );

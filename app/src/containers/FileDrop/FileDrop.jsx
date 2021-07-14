@@ -8,6 +8,7 @@ import { usePromiseTracker }        from "react-promise-tracker";
 import leftarrow                    from '../../assets/left-arrow.png';
 import                                "./Filedrop.css";
 import RenderResults                from "../../components/Results/RenderResults";
+import { engineApi }                from "../../api";
 
 
 export default function FileDrop() {
@@ -32,6 +33,7 @@ export default function FileDrop() {
   const setAnalysisResult = (data) => {
     console.log("processed" + processed)
     setProcessed(prev => ([...prev, data]));
+    
   };
 
   const dropAnotherFile = () => {
@@ -47,6 +49,28 @@ export default function FileDrop() {
     setResultIndex(index);
     setShowResult(true)
   }
+
+
+
+    const getProtectedFile = (index) => {
+      // debugger;
+      var file = processed[index].file;
+        engineApi
+          .protectFile(file)
+          .then((blob) => {
+            let url = window.URL.createObjectURL(blob);
+            let a = document.createElement("a");
+            a.href = url;
+            a.download = file.name;
+            a.click();
+          })
+          .catch((error) => {
+            // debugger;
+            console.log(error.message);
+          })
+      
+    };
+  
 
   const hideResult =()=>{
     console.log("hideResult")
@@ -86,6 +110,7 @@ export default function FileDrop() {
               <DragDrop
                 setAnalysisResult={setAnalysisResult}
                 results = {processed}
+                dropAnotherFile={dropAnotherFile}
               />
               {processed.length > 0 && <ViewResult dropAnotherFile={dropAnotherFile}/>}
               {promiseInProgress && <UploadingLoader />}
@@ -121,7 +146,7 @@ export default function FileDrop() {
                 unprocessed ={unprocessed}
                 dropAnotherFile={dropAnotherFile}
                 viewResult = {viewResultHandler}
-               
+                downloadClean = {getProtectedFile}
               />
             )}
           </div>
