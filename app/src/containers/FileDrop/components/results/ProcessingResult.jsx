@@ -101,7 +101,7 @@ export default function ProcessingResult({
 
     return (
       <>
-        <div id="cleanSection" className="cleansection">
+        <div id="cleanSection" className="cleansection processing_result">
           <div className="container">
             <div className="clean-section">
               <div className="inner-grabox processing-result">
