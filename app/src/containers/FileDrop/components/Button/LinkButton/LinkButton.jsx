@@ -1,13 +1,14 @@
 import React from "react";
-import            "../Filedrop.css";
+import            "./LinkButton.css";
 
-export default function ButtonComponent(props) {
+export default function LinkButton(props) {
   return (
     <>
       <button
         id={props.id}
-        className={props.classname}
+        className=  {'root ' + props.classname}
         onClick={props.onClicked}
+        style={{color: props.color}}
       >
         {props.imgsrc && <img src={props.imgsrc} alt="" />} 
         {props.loader && <div id="loader-protected" class="loader"></div>}{props.text}

@@ -1,14 +1,14 @@
 import React, {useState, useEffect, useRef}                        from "react";
 import { trackPromise }             from "react-promise-tracker";
 import { useToasts }                from "react-toast-notifications";
-import { usePromiseTracker }  from "react-promise-tracker";
+import { usePromiseTracker }        from "react-promise-tracker";
 
 // import { validFileType } from "../../actions";
 import { engineApi, ResponseError } from "../../../../api";
 import supporting                   from "../../../../data/fileDrop/supportedFileTypes.json";
 import messages                     from "../../../../data/fileDrop/messages.json";
-import DragableFile                 from '../dragablefile/DragableFile';
-import ProgressBar                 from '../progressbar/ProgressBar';
+import DragableFile                 from '../Dragablefile/DragableFile';
+import ProgressBar                  from '../Progressbar/ProgressBar';
 import                                   './FileDropZone.css';
 const XMLParser = require("react-xml-parser");
 
@@ -35,7 +35,7 @@ export default function FileDropzone(props) {
     
   }, []) 
 
-  
+
 
   const getFileSizeInMB = (file) => {
     const size_of_file = file.size / 1000000;
@@ -56,7 +56,13 @@ const fileType = (fileName) => {
   const analyseFile = (accepted) => {
     trackPromise(
       engineApi
-        .analyseFile(accepted)
+        .analyseFile(accepted,(event) => {
+          console.log("upload callback" )
+          var percentage = Math.round(
+            (100 * event.loaded) / event.total
+          );
+          props.setProgressInfo(percentage);
+        })
         .then((result) => {
           const xml = new XMLParser().parseFromString(result);
           setStatus(true);
@@ -180,7 +186,7 @@ const fileType = (fileName) => {
         />
         <label id="inputFileLabel" for="file-1"></label>
       </div>
-      {(promiseInProgress || props.results.length > 0) && <ProgressBar status={promiseInProgress} />}
+      {(promiseInProgress || props.results.length > 0) && <ProgressBar rebuildStartTime = {props.rebuildStartTime} status={promiseInProgress} value = {props.progressInfo}/>}
       <DragableFile />
     </>
   );

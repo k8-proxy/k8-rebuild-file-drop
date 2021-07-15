@@ -1,6 +1,5 @@
 import React        from "react";
-import FileDropzone from "../filedropzone/FileDropZone";
-// import ViewResult    from "../ViewResult";
+import FileDropzone from "../Filedropzone/FileDropZone";
 import              './DragDrop.css'; 
 
 export default function DragDrop(props) {
@@ -8,8 +7,15 @@ export default function DragDrop(props) {
     <>
       <div className="right-ban">
         <div className="file-upload">
-          <div id="fancy-contact-form"   className="dropzone">
-              <FileDropzone setAnalysisResult = {props.setAnalysisResult} results = {props.results} dropAnotherFile={props.dropAnotherFile}/>
+          <div id="fancy-contact-form" className="dropzone">
+            <FileDropzone
+              setAnalysisResult={props.setAnalysisResult}
+              results={props.results}
+              dropAnotherFile={props.dropAnotherFile}
+              progressInfo={props.progressInfo}
+              setProgressInfo = {props.setProgressInfo}
+              rebuildStartTime = {props.rebuildStartTime}
+            />
           </div>
         </div>
       </div>

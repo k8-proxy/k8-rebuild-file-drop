@@ -1,7 +1,7 @@
 import React            from "react";
 import docicon          from "../../../../assets/icon-documents-tick.png";
 import refreshicon      from "../../../../assets/refresh.png";
-import ButtonComponent  from "../../button/Button";
+import ButtonComponent  from "../Button/Button/Button";
 import                  "./ViewResult.css";
 
 export default function ViewResult(props) {

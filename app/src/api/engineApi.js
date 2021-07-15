@@ -1,13 +1,15 @@
+import axios from "axios";
+
 import ResponseError from './ResponseError';
 
 const analysisSuffix = '/api/analyse/base64';
 const rebuildSuffix = '/api/Rebuild/base64';
 
-const analyseFile = (file) => {
+const analyseFile = (file, uploadProgress) => {
     return readFileBase64Async(file).then(base64 => {
         const raw = JSON.stringify({ "Base64": base64 });
         const url = process.env.REACT_APP_ANALYSE_API_ENDPOINT + analysisSuffix;
-        return callFileAnalysis(url, raw);
+        return callFileAnalysis(url, raw, uploadProgress);
     });
 }
 
@@ -30,19 +32,55 @@ const readFileBase64Async = (file) => {
     });
 }
 
-const callFileAnalysis = (url, raw) => {
+// const callFileAnalysis = (url, raw, callback) => {
+//     console.log("callFileAnalysis" + callback)
+//     const promise = new Promise((resolve, reject) => {
+//         resolve(fetch(url, {
+//             method: 'POST',
+//             body: raw,
+//             headers: {
+//                 "x-api-key": process.env.REACT_APP_ANALYSE_API_KEY,
+//                 "Content-Type": "application/json",
+//             },
+//             onUploadProgress: callback
+//         })
+//         .then((response) => {
+//             if ( response.ok ) {
+//                 return response.text()
+//             } else {
+//                 throw harvestErrorMessage(response);
+//             }
+//         }));
+//     });
+
+//     return promise;
+// }
+
+
+const callFileAnalysis = (url, raw, callback) => {
+    console.log("callFileAnalysis" + callback)
     const promise = new Promise((resolve, reject) => {
-        resolve(fetch(url, {
-            method: 'POST',
-            body: raw,
+        resolve(axios({
+            url: url,
             headers: {
                 "x-api-key": process.env.REACT_APP_ANALYSE_API_KEY,
                 "Content-Type": "application/json",
             },
-        })
+            data: raw,
+            method: 'post',
+            onUploadProgress: callback
+          })
+        //   (url, {
+        //     method: 'post',
+        //     body: raw,
+        //     headers: {
+              
+        //     },
+            
+        // })
         .then((response) => {
-            if ( response.ok ) {
-                return response.text()
+            if ( response.status === 200 ) {
+                return response.data;
             } else {
                 throw harvestErrorMessage(response);
             }
@@ -51,6 +89,7 @@ const callFileAnalysis = (url, raw) => {
 
     return promise;
 }
+
 
 const callFileProtect = (url, data) => {
     const promise = new Promise((resolve, reject) => {

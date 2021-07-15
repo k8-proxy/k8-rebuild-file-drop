@@ -1,7 +1,7 @@
 import React            from "react";
-import ButtonComponent  from "../../button/Button";
+import ButtonComponent  from "../Button/Button/Button";
 import unprocessImg     from '../../../../assets/word-icon.png'
-import RebuildTable     from "../rebuildtable/RebuildTable";
+import RebuildTable     from "./Rebuildtable/RebuildTable";
 import                       "./ProcessingResult.css";
 
 
@@ -35,6 +35,7 @@ export default function RebuildFilesReady(props) {
               <ButtonComponent
                 text={"Download All Clean Files"}
                 loader = {false}
+                onClicked ={()=>{props.downloadAllCleanFiles()}}
                 classname={"green"}
               />
             </div>
