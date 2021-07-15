@@ -12,13 +12,13 @@ export default function RebuildTable(props){
         <>
         <Table className="rebiuldTable" aria-label="simple table">
         <TableBody>
-          {props.rebuildFiles.map((row) => (
+          {props.rebuildFiles.map((row, index) => (
             <TableRow key={row.file.name}>
               <TableCell  style={{width: '35%'}} component="th" scope="row" title={row.file.name}>
                 {row.file.name.length> 20?  row.file.name.substring(0,20):  row.file.name}
               </TableCell>
-              <TableCell style={{width: '25%'}} align="right"><button className="tableBtns viewResultBtn">View Result</button></TableCell>
-              <TableCell style={{width: '40%'}} align="right"><button className="tableBtns downLoadCleanFilesBtn">Download Clean File</button></TableCell>
+              <TableCell onClick={()=>{props.viewResult(index)}} style={{width: '25%'}} align="right"><button className="tableBtns viewResultBtn">View Result</button></TableCell>
+              <TableCell onClick={()=>{props.downloadClean(index)}} style={{width: '40%'}} align="right"><button className="tableBtns downLoadCleanFilesBtn">Download Clean File</button></TableCell>
             </TableRow>
           ))}
         </TableBody>

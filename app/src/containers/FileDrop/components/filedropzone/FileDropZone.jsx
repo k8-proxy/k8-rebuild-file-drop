@@ -115,6 +115,7 @@ const fileType = (fileName) => {
       // if (getFileSizeInMB(file) > FILE_LIMIT_MB) {
       // }
       console.log("uploadHandler:" + file.name)
+      props.dropAnotherFile();
       analyseFile(file);
     }
     event.target.value = "";
@@ -138,6 +139,7 @@ const fileType = (fileName) => {
         return;
       }
       //displayRebuildUI();
+      props.dropAnotherFile();
       analyseFile(file);
       event.dataTransfer.value = "";
     } else {

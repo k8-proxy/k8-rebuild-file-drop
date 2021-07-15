@@ -1,20 +1,22 @@
-.rebuildTable tr th, .rebuildTable tr td, .MuiTableCell-root {
-    font-size: 13px !important;
-    padding: 10px !important;
-    text-align: left !important;
+.rebuildTable tr th,
+.rebuildTable tr td,
+.MuiTableCell-root {
+  font-size: 13px !important;
+  padding: 10px !important;
+  text-align: left !important;
 }
 tr.MuiTableRow-root:nth-child(even) {
   background: #f7f9fc;
 }
 .tableBtns {
-    border: 0;
-    background: transparent;
-    cursor: pointer;
-    padding: 6px 6px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 6px 6px;
 }
 button.tableBtns.downLoadCleanFilesBtn {
-    color: #0db091;
+  color: #0db091;
 }
 button.tableBtns.viewResultBtn {
-    color: #c22969;
+  color: #c22969;
 }

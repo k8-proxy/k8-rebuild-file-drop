@@ -3,9 +3,9 @@ WORKDIR /context
 COPY package*.json .
 RUN npm install
 COPY . .
-ARG REACT_APP_ANALYSE_API_ENDPOINT=''
-ARG REACT_APP_FILETYPEDETECTION_API_ENDPOINT=''
-ARG REACT_APP_REBUILD_API_ENDPOINT=''
+ARG REACT_APP_ANALYSE_API_ENDPOINT='https://corpfiledrop.glasswallsolutions.com'
+ARG REACT_APP_FILETYPEDETECTION_API_ENDPOINT='https://corpfiledrop.glasswallsolutions.com'
+ARG REACT_APP_REBUILD_API_ENDPOINT='https://corpfiledrop.glasswallsolutions.com'
 ARG REACT_APP_ANALYSE_API_KEY='no-need'
 ARG REACT_APP_FILETYPEDETECTION_API_KEY='no-need'
 ARG REACT_APP_REBUILD_API_KEY='no-need'

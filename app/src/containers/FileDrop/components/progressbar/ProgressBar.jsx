@@ -8,9 +8,9 @@ export default function ProgressBar(props) {
     <>
       <div id="_progresscomplete" className="progress-bar">
         <h3 id="status">{props.status?"Uploading":"Complete"}</h3>
-        <p id="loaded_n_total"> {!props.status ? '100%': 'NA'} - Files rebuild in 2.34 seconds</p>
+        <p id="loaded_n_total"> {!props.status ? '100%': '10%'} - Files rebuild in x seconds</p>
         <div id="progressOptions" className="status-action-btns">
-          <ButtonComponent imgsrc={checkicon} classname={"green-tick"} />
+          {!props.status && <ButtonComponent imgsrc={checkicon} classname={"green-tick"} />}
         </div>
         <progress
           className="progressbar"

@@ -1,40 +1,81 @@
-import React, {useEffect}       from "react";
-import DragDrop                 from "./components/dragdrop/DragDrop";
-// import ProcessingResult         from "./components/results/ProcessingResult";
-import RebuildFilesReady        from "./components/results/RebuildFilesReady";
-import ViewResult               from "./components/viewresults/ViewResult";
-import UploadingLoader          from "./components/loader/UploadingLoader";
-import { usePromiseTracker }    from "react-promise-tracker";
-import leftarrow                from '../../assets/left-arrow.png';
+import React, {useEffect, useState} from "react";
+import DragDrop                     from "./components/dragdrop/DragDrop";
+import ProcessingResult             from "./components/results/ProcessingResult";
+import RebuildFilesReady            from "./components/results/RebuildFilesReady";
+import ViewResult                   from "./components/viewresults/ViewResult";
+import UploadingLoader              from "./components/loader/UploadingLoader";
+import { usePromiseTracker }        from "react-promise-tracker";
+import leftarrow                    from '../../assets/left-arrow.png';
 import                                "./Filedrop.css";
-
+import RenderResults                from "../../components/Results/RenderResults";
+import { engineApi }                from "../../api";
 
 
 export default function FileDrop() {
   const { promiseInProgress } = usePromiseTracker({ delay: 100 });
+
   const [processed, setProcessed] = React.useState([]);
   const [unprocessed, setUnprocessed] = React.useState([]);
+  
   const [isActive, setActive] = React.useState(false);
+
   const [reset, doRest] = React.useState(false);
+  const [resultIndex, setResultIndex] = React.useState(-1);
+  const [showResult, setShowResult] = useState(false);
+  
   
 
 
-  useEffect(() => {
-    setProcessed([]);
- }, [reset])
+//   useEffect(() => {
+//     setProcessed([]);
+//  }, [reset])
 
   const setAnalysisResult = (data) => {
     console.log("processed" + processed)
     setProcessed(prev => ([...prev, data]));
+    
   };
 
   const dropAnotherFile = () => {
     setProcessed([]);
+    setShowResult(false);
   };
 
   const hideRightBanner = () => {
     setActive(!isActive);
   };
+
+  const viewResultHandler =(index)=>{
+    setResultIndex(index);
+    setShowResult(true)
+  }
+
+
+
+    const getProtectedFile = (index) => {
+      // debugger;
+      var file = processed[index].file;
+        engineApi
+          .protectFile(file)
+          .then((blob) => {
+            let url = window.URL.createObjectURL(blob);
+            let a = document.createElement("a");
+            a.href = url;
+            a.download = file.name;
+            a.click();
+          })
+          .catch((error) => {
+            // debugger;
+            console.log(error.message);
+          })
+      
+    };
+  
+
+  const hideResult =()=>{
+    console.log("hideResult")
+    setShowResult(false)
+  }
 
   const getRightBanner=()=>{
     return(       
@@ -65,15 +106,36 @@ export default function FileDrop() {
       <div className="containerWrap">
         <div className="row">
           <div className="filedropLeft">
-            <div className="stactic-banner">
+            {!showResult && <div className="stactic-banner">
               <DragDrop
                 setAnalysisResult={setAnalysisResult}
                 results = {processed}
+                dropAnotherFile={dropAnotherFile}
               />
               {processed.length > 0 && <ViewResult dropAnotherFile={dropAnotherFile}/>}
               {promiseInProgress && <UploadingLoader />}
-            </div>
-            {/* {processingResult && <ProcessingResult /> } */}
+            </div>}
+            {showResult && 
+
+            // <RenderResults
+						// 		file={processed[resultIndex].file}
+						// 		analysisReport={processed[resultIndex].analysisReport}
+						// 		analysisReportString={processed[resultIndex].analysisReportString}
+						// 		validation={false}
+						// 		onAnotherFile={dropAnotherFile}
+						// 		isShowResult={false}
+						// 	/>
+            // }
+            <ProcessingResult 	
+                file={processed[resultIndex].file}
+								analysisReport={processed[resultIndex].analysisReport}
+								analysisReportString={processed[resultIndex].analysisReportString}
+								validation={false}
+								onAnotherFile={dropAnotherFile}
+								hideResult={hideResult}
+                /> 
+                }
+
           </div>
           <div className="filedropRight">
             {processed.length == 0 ? (
@@ -83,6 +145,8 @@ export default function FileDrop() {
                 rebuildFiles={processed}
                 unprocessed ={unprocessed}
                 dropAnotherFile={dropAnotherFile}
+                viewResult = {viewResultHandler}
+                downloadClean = {getProtectedFile}
               />
             )}
           </div>

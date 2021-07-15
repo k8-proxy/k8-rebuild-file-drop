@@ -12,6 +12,7 @@ export default function ViewResult(props) {
           id={"refreshBtn"}
           imgsrc={refreshicon}
           classname={"refresh"}
+          loader = {false}
           onClicked ={()=>{props.dropAnotherFile()}}
         />
         <div className="img-successful">
