@@ -130,9 +130,9 @@ export default function FileDrop() {
                 }
           </div>
           <div className="filedropRight">
-            {processed.length === 0 ? (
-              getRightBanner()
-            ) : (
+            { processed.length === 0 && getRightBanner()}
+            
+             {processed.length >0 &&
               <RebuildFilesReady
                 rebuildFiles={processed}
                 unprocessed ={unprocessed}
@@ -141,7 +141,8 @@ export default function FileDrop() {
                 downloadClean = {getProtectedFile}
                 downloadAllCleanFiles = {downloadAllCleanFiles}
               />
-            )}
+              
+}
           </div>
         </div>
       </div>

@@ -50,7 +50,7 @@ export default function DragableFile(props) {
         <ul>
         {Samplefiles.files.map((file, index)=>{
           return  <SampleFile
-                  key={index}
+                  index={index}
                   setSampleFile ={setSampleFile}
                   link={file.path}
                   text={file.name}
