@@ -8,10 +8,10 @@ const useStyles = makeStyles({
     width: '100%',
   },
   colorPrimary: {
-    backgroundColor: '#B2DFDB',
+    backgroundColor: '##cbcfde',
   },
   barColorPrimary: {
-    backgroundColor: '#0db091',
+    backgroundColor: '#4DD9ED',
   }
 });
 
