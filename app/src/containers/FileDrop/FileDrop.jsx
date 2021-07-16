@@ -1,224 +1,151 @@
-import React, { useContext, useState } from "react";
-import { useToasts } from "react-toast-notifications";
-import { trackPromise } from "react-promise-tracker";
+import React, {useEffect, useState} from "react";
+import DragDrop                     from "./components/Dragdrop/DragDrop";
+import ProcessingResult             from "./components/Results/ProcessingResult";
+import RebuildFilesReady            from "./components/Results/RebuildFilesReady";
+import ViewResult                   from "./components/Viewresults/ViewResult";
+import UploadingLoader              from "./components/Loader/UploadingLoader";
+import { usePromiseTracker }        from "react-promise-tracker";
+import leftarrow                    from '../../assets/left-arrow.png';
+import                                    "./Filedrop.css";
+import { engineApi }                from "../../api";
 
-// import { validFileType } from "../../actions";
-import { engineApi, ResponseError } from "../../api";
-import { FileDropContext } from "../../context/fileDrop/fileDrop-context";
 
-import classes from "./FileDrop.module.scss";
+export default function FileDrop() {
+  const { promiseInProgress } = usePromiseTracker({ delay: 100 });
 
-import supporting from "../../data/fileDrop/supportedFileTypes.json";
-import messages from "../../data/fileDrop/messages.json";
+  const [processed, setProcessed] = React.useState([]);
+  const [unprocessed] = React.useState([]);
 
-// import refreshIcon from "../../assets/svg/file-drop/refresh-button.svg";
+  const [isActive, setActive] = React.useState(false);
 
-import StyledDropzone from "../../components/UI/StyledDropzone/StyledDropzone";
-import Button from "../../components/UI/Button/Button";
-import RenderResults from "../../components/Results/RenderResults";
-// import IconButton from "../../components/UI/IconButton/IconButton";
+  const [resultIndex, setResultIndex] = React.useState(-1);
+  const [showResult, setShowResult] = useState(false);
+  const [progressInfo, setProgressInfo] = useState(0);
+  const [rebuildTime, setRebuildTime] = useState(0);
+  
 
-const FileDrop = () => {
-	const { addToast } = useToasts();
-	const {
-		file,
-		analysisReport,
-		analysisReportString,
-		validation,
-		fileProcessed,
-		loading,
-		setResultFromServer,
-		resetState,
-	} = useContext(FileDropContext);
-	const [showResult, setShowResult] = useState(false);
+  useEffect(()=>{
+    if(progressInfo === 100){
+      console.log("upload completed")
+      setRebuildTime(new Date().getTime())
+    }
+  }, [progressInfo])
+  const setAnalysisResult = (data) => {
+    console.log("processed" + processed);
+    setProcessed((prev) => [...prev, data]);
+  };
 
-	const accept = [];
-	// const vendors = [];
-	const fileTypes = [];
-	const extByTypes = {};
+  const dropAnotherFile = () => {
+    setProcessed([]);
+    setShowResult(false);
+  };
 
-	supporting.browser.forEach((vendor, vIndex) => {
-		const vendorName = Object.keys(vendor)[0];
-		const vendorTypes = vendor[vendorName];
-		// vendors.push(vendorName);
-		fileTypes[vIndex] = [];
+  const hideRightBanner = () => {
+    setActive(!isActive);
+  };
 
-		vendorTypes.forEach((type) => {
-			const typeName = Object.keys(type)[0];
-			const extensions = type[typeName];
-			fileTypes[vIndex].push(typeName);
-			extByTypes[vendorName + "-" + typeName] = extensions;
+  const viewResultHandler = (index) => {
+    setResultIndex(index);
+    setShowResult(true);
+  };
 
-			extensions.forEach((extension) => {
-				accept.push(extension);
-			});
-		});
-	});
+  const getProtectedFile = (index) => {
+    // debugger;
+    var file = processed[index].file;
+    engineApi
+      .protectFile(file)
+      .then((blob) => {
+        let url = window.URL.createObjectURL(blob);
+        let a = document.createElement("a");
+        a.href = url;
+        a.download = file.name;
+        a.click();
+      })
+      .catch((error) => {
+        // debugger;
+        console.log(error.message);
+      });
+  };
+  
+  const downloadAllCleanFiles = () => {
+    getProtectedFile(0);
+  };
 
-	const handleDrop = ([accepted = {}], [rejected = {}]) => {
-		if (rejected && rejected.errors) {
-			const [{ code, message } = { code: "unknown-error" }] = rejected.errors;
-			let messageText = messages[code];
+  const hideResult = () => {
+    console.log("hideResult");
+    setShowResult(false);
+  };
 
-			if (!messageText) {
-				console.warn("Missed message for code ", code);
-				messageText = message || code;
-			}
-			addToast(messageText, {
-				appearance: "warning",
-				autoDismiss: true,
-			});
-			return;
-		}
+  const getRightBanner=()=>{
+    return(       
+    <div className="stactic-banner">
+      <div className={isActive ? 'your_className': null}>
+      <div className="left-ban">
+      <button onClick={hideRightBanner} className="bannerCloseButton"><img src={leftarrow} className="left-arrow" alt="Arrow"/></button>
+      <div className="banner-text">
+        <h2>Test drive <br></br>Glasswall CDR</h2>
+        <p className="desktop-text-cdr">
+          Watch our CDR platform instantly clean and rebuild one of your
+          files. Simply upload your own file (or drag and drop a sample
+          file from below) to get started.
+        </p>
+       </div>
+        <p className="mobile-text-cdr">
+          Watch our CDR platform instantly clean and rebuild one of your
+          files. Simply upload your own file to get started.
+        </p>
+    </div>
+    </div>
+  </div>
+  )
+  }
 
-		// const { name, type } = accepted;
-		// console.warn(` ----------- Start of processing ${ name } [${ type }]  ${new Date().toISOString()} -------------`);
-		// console.dir(accepted);
-
-		trackPromise(
-			engineApi.analyseFile(accepted)
-				.then((result) => {
-					// console.warn(` ----------- File Analysis is done ${new Date().toISOString()} -------------`);
-					const XMLParser = require("react-xml-parser");
-					const xml = new XMLParser().parseFromString(result);
-
-					setResultFromServer({
-						analysisReport: xml,
-						analysisReportString: result,
-						file: accepted,
-						fileProcessed: true,
-					});
-				})
-				.catch((error) => {
-					// console.warn(` ----------- Caught of File Drop ${new Date().toISOString()} -------------`);
-					if (error instanceof ResponseError) {
-						const {
-							response: { type, status },
-						} = error;
-						let appearance = messages.toasterAppearance[status],
-							message = messages.httpCodes[status];
-						if (type) {
-							if (!appearance) {
-								appearance = messages.toasterAppearance[type];
-							}
-							if (!message) {
-								message = messages.httpCodes[type];
-							}
-						}
-						if (!appearance) {
-							appearance = "error";
-						}
-						if (!message) {
-							message = error.message;
-						}
-						addToast(message, {
-							appearance,
-							autoDismiss: true,
-						});
-					} else {
-						addToast(error.message, {
-							appearance: "error",
-							autoDismiss: true,
-						});
-					}
-				})
-				.finally(() => {
-					//setResultFromServer({ loading: false });
-				})
-		);
-	};
-
-	const dropAnotherFile = () => {
-		resetState();
-		setShowResult(false);
-	};
-
-	let styledDropzone = <StyledDropzone
-		//externalStyles={classes.dropzone}
-		onDrop={handleDrop}
-		accept={accept}
-		loading={loading}
-	>
-		<div className={classes.message}>
-			Drop a file here to have it processed by Glasswall CDR
-		</div>
-		<div className={[classes.message, classes.reject].join(" ")}>
-			Please use a supported file type
-		</div>
-		<div className={[classes.image, classes.imageDrop].join(" ")} />
-		<Button testId="buttonFileDropSelectFile" externalStyles={classes.button}>SELECT A FILE</Button>
-	</StyledDropzone>;
-	return (
-		<section className={classes.FileDrop}>
-			<div className={classes.dropzoneWrap}>
-				{!fileProcessed ? (
-					<section
-						style={{
-							display: "flex",
-							background: "white",
-							margin: 0,
-							justifyContent: "center",
-							alignItems: "center",
-							height: "100%",
-						}}
-					>
-						{styledDropzone}
-						<div className={classes.infoBlock}>
-							<p>
-								Once the file has been uploaded, it is passed through the
-								Analysis API of the Glasswall SDK. The applied content
-								management policy has all content flags set to 'Sanitise'.
-							</p>
-						</div>
-					</section>
-				) : (
-						<>
-							<div className={[classes.dropzone, classes.processed].join(" ")}>
-								{styledDropzone}
-
-{/*
-								<div className={classes.results}>
-									<IconButton
-										externalStyles={classes.buttonRefresh}
-										onClick={dropAnotherFile}
-									>
-										<img src={refreshIcon} alt="drop refresh icon" />
-									</IconButton>
-									<div
-										className={[classes.message, classes.messageProcessed].join(
-											" "
-										)}
-									>
-										Your file has been processed
-								</div>
-									<div
-										className={[classes.image, classes.imageProcessed].join(
-											" "
-										)}
-									/>
-									<Button
-										testId="buttonFileDropViewResult"
-										onButtonClick={() => setShowResult(true)}
-										externalStyles={classes.button}
-									>
-										VIEW RESULT
-								</Button>
-								</div>
-*/}
-							</div>
-							<RenderResults
-								file={file}
-								analysisReport={analysisReport}
-								analysisReportString={analysisReportString}
-								validation={validation}
+  return (
+    <>
+      <div className="containerWrap">
+        <div className="row">
+          <div className="filedropLeft">
+            {!showResult && <div className="stactic-banner">
+              <DragDrop
+                setAnalysisResult={setAnalysisResult}
+                results = {processed}
+                dropAnotherFile={dropAnotherFile}
+                progressInfo = {progressInfo}
+                setProgressInfo = {setProgressInfo}
+                setProgressInfo = {setProgressInfo}
+                rebuildStartTime = {rebuildTime}
+              />
+              {processed.length > 0 && <ViewResult dropAnotherFile={dropAnotherFile}/>}
+              {promiseInProgress && <UploadingLoader />}
+            </div>}
+            {showResult && 
+            <ProcessingResult 	
+                file={processed[resultIndex].file}
+								analysisReport={processed[resultIndex].analysisReport}
+								analysisReportString={processed[resultIndex].analysisReportString}
+								validation={false}
 								onAnotherFile={dropAnotherFile}
-								isShowResult={showResult}
-							/>
-						</>
-					)}
-			</div>
-		</section>
-	);
-};
-
-export default FileDrop;
+								hideResult={hideResult}
+                /> 
+                }
+          </div>
+          <div className="filedropRight">
+            { processed.length === 0 && getRightBanner()}
+            
+             {processed.length >0 &&
+              <RebuildFilesReady
+                rebuildFiles={processed}
+                unprocessed ={unprocessed}
+                dropAnotherFile={dropAnotherFile}
+                viewResult = {viewResultHandler}
+                downloadClean = {getProtectedFile}
+                downloadAllCleanFiles = {downloadAllCleanFiles}
+              />
+              
+}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}

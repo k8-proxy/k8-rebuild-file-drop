@@ -1,0 +1,10 @@
+.rebuildTable tr th,
+.rebuildTable tr td,
+.MuiTableCell-root {
+  font-size: 13px !important;
+  padding: 10px !important;
+  text-align: left !important;
+}
+tr.MuiTableRow-root:nth-child(even) {
+  background: #f7f9fc;
+}

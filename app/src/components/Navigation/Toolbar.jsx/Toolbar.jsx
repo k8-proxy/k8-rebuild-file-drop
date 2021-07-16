@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 // import { CSSTransition } from "react-transition-group";
 
 import classes from "./Toolbar.module.scss";
@@ -12,7 +12,7 @@ import UserLink from "../../UI/UserLink/UserLink";
 // import Popup from "../../UI/Popup/Popup";
 
 // import usersIcon from "../../../assets/menu-icons/icon-users.svg";
-import fileDoropIcon from "../../../assets/menu-icons/icon-file-drop.svg";
+import fileDoropIcon from "../../../assets/menu-icons/icon-web-drop.png";
 // import policy from "../../../assets/menu-icons/icon-policies.svg";
 // import transactionIcon from "../../../assets/menu-icons/icon-transactions.svg";
 // import dashIcon from "../../../assets/menu-icons/icon-dashboard.svg";
@@ -20,9 +20,11 @@ import fileDoropIcon from "../../../assets/menu-icons/icon-file-drop.svg";
 // import logoutIcon from "../../../assets/svg/account-icons/logout-icon.svg";
 // import changePassIcon from "../../../assets/svg/account-icons/change-password-icon.svg";
 import ChangePassword from "../../ChangePassword/ChangePassword";
+import { engineApi } from "../../../api";
+import User from "../../../containers/Users/User/User";
 
 const navLinks = [
-/*
+  /*
 	{
 		link: "/analytics",
 		name: "Analytics",
@@ -48,32 +50,46 @@ const navLinks = [
 	},
 	{ link: "/users", name: "Users", icon: usersIcon, id: "id-4" },
 */
-	{
-		link: "/",
-		name: "File drop",
-		icon: fileDoropIcon,
-		id: "id-5",
-		testId: "navLinkUsers"
-	},
+  {
+    link: "/",
+    name: "File drop",
+    icon: fileDoropIcon,
+    id: "id-5",
+    testId: "navLinkUsers",
+  },
 ];
 
 const Toolbar = ({ expanded, navExpandedHandler }) => {
-	// const [setIsOpenPopup] = useState(false);
-	const {
-		// logout,
-		isChangePass,
-		// openChangePass,
-		closeChangePass,
-	} = useContext(AuthContext);
+  const [data, setExpandData] = useState(null);
+  const {
+    // logout,
+    isChangePass,
+    // openChangePass,
+    closeChangePass,
+  } = useContext(AuthContext);
 
-	const cls = [classes.Toolbar];
-	// const clsNav = [classes.nav];
-	if (expanded) {
-		cls.push(classes.expanded);
-		// clsNav.push(classes.expanded);
-	}
+  const cls = [classes.Toolbar];
+  // const clsNav = [classes.nav];
+  if (expanded) {
+    cls.push(classes.expanded);
+    // clsNav.push(classes.expanded);
+  }
 
-/*
+  useEffect(()=>{
+	engineApi.callSDKVersions().then(result=>{
+			if(result.status === 200){
+				
+				setExpandData(result.data)
+			}
+			console.log("VEreiosnresult " + result)
+	}).catch(err=>{
+		 // This is intentional
+	})
+  }, [])
+
+
+
+  /*
 	const accountLinks = [
 		{
 			testId: "userLinksButtonLogout",
@@ -93,26 +109,26 @@ const Toolbar = ({ expanded, navExpandedHandler }) => {
 	];
 */
 
-	return (
-		<>
-			<section className={cls.join(" ")}>
-				<GlasswallLogo className={classes.logo} />
-				<NavigationItems
-					expanded={expanded}
-					items={navLinks}
-					externalStyles={classes.linkList}
-				/>
-				<UserLink
+  return (
+    <>
+      <section className={cls.join(" ")}>
+        <GlasswallLogo className={classes.logo} />
+        <NavigationItems
+          expanded={expanded}
+          items={navLinks}
+          externalStyles={classes.linkList}
+        />
+        {/* <UserLink
 					username={"usertest@glasswallsolutions.com"}
 					expanded={expanded}
 					// openPopup={() => setIsOpenPopup(true)}
 					// closePopup={() => setIsOpenPopup(false)}
 					externalStyles={classes.user}
-				/>
-				<ExpandButton expanded={expanded} clickHandler={navExpandedHandler} />
-			</section>
+				/> */}
+        <ExpandButton data={data} expanded={expanded} clickHandler={navExpandedHandler} />
+      </section>
 
-{/*
+      {/*
 			<CSSTransition
 				in={isOpenPopup}
 				timeout={300}
@@ -135,13 +151,13 @@ const Toolbar = ({ expanded, navExpandedHandler }) => {
 			</CSSTransition>
 */}
 
-			<ChangePassword
-				isOpenModal={isChangePass}
-				closeModal={closeChangePass}
-				externalStyles={classes.modal}
-			/>
-		</>
-	);
+      <ChangePassword
+        isOpenModal={isChangePass}
+        closeModal={closeChangePass}
+        externalStyles={classes.modal}
+      />
+    </>
+  );
 };
 
 export default Toolbar;

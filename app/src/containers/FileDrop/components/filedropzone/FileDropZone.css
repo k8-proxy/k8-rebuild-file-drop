@@ -1,0 +1,56 @@
+#_dragsection {
+  height: auto !important;
+}
+/*-----------------------*/
+.inputfile + label {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  width: 100%;
+  height: 280px;
+  outline: none;
+  border: 2px dashed rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+}
+.inputfile + label {
+  height: 300px;
+  border: 2px dashed rgb(209 209 209);
+}
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+  outline: none;
+}
+.dz-message .img-pnl {
+  background: url(../../../../assets/upload-img.png) no-repeat left top;
+  width: 70px;
+  height: 70px;
+  margin: 0px auto;
+  background-size: contain;
+}
+.file-text {
+  font-size: 20px;
+  font-weight: 600;
+  padding: 10px 0px 15px;
+  color: #11497c;
+}
+.file-text span {
+  color: #4dd9ed;
+}
+.file-text2 {
+  color: #a4a4a4;
+}
+
+.file-text2 {
+  color: #bfc6d8;
+  line-height: 25px;
+}
