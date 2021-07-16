@@ -1,0 +1,104 @@
+.FileDrop {
+  height: 100%;
+  border: 1px solid #b6bfc9;
+  border-radius: 0.6rem;
+}
+.FileDrop .dropzoneWrap {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+  background: #fff;
+  overflow: hidden;
+  border-radius: 0.6rem;
+}
+.FileDrop .dropzoneWrap .processed {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: flex;
+  padding: 5% 3%;
+  transform: none;
+  border: 1px solid #b6bfc9;
+  border-radius: 0.6rem;
+  animation: fade-in 500ms linear;
+}
+.FileDrop .dropzoneWrap .processed .results {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 450px;
+  height: 550px;
+  padding: 5rem 0;
+  background: #b6bfc9;
+  box-shadow: 0 0px 6px 3px rgba(0, 0, 0, 0.5);
+}
+.FileDrop .dropzoneWrap .processed .results .buttonRefresh {
+  width: 5rem;
+  height: 5rem;
+  position: absolute;
+  right: 3rem;
+  top: 3rem;
+}
+.FileDrop .dropzoneWrap .processed .results .messageProcessed {
+  margin-top: 0;
+}
+.FileDrop .infoBlock {
+  margin-left: 10rem;
+  margin-right: 20rem;
+}
+.FileDrop .infoBlock p {
+  font-size: 2rem;
+  line-height: 3rem;
+  color: #636970;
+}
+.FileDrop .message {
+  display: block;
+  margin-top: 4.2rem;
+  font-size: 2.4rem;
+  font-weight: 300;
+  text-align: center;
+  padding: 0px 5rem;
+  color: #fff;
+}
+.FileDrop .reject {
+  display: none;
+}
+.image {
+  background-repeat: no-repeat;
+}
+.imageDrop {
+  width: 11.3rem;
+  height: 10.3rem;
+  background-image: url(../../assets/svg/file-drop/drag-drop-area.svg);
+}
+.imageProcessed {
+  width: 11.44rem;
+  height: 15rem;
+  background-image: url(../../assets/svg/file-drop/sanitised-file.svg);
+  margin-top: 0.2rem;
+}
+.button {
+  font-size: 1.7rem;
+  font-weight: 800;
+  background-color: #1a919a;
+  padding: 1.25rem 2.75rem;
+  color: white;
+  border: none;
+}
+@keyframes fade-in {
+  from {
+    top: 5rem;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+/*    new file css     */
+

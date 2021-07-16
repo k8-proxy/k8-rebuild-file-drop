@@ -1,0 +1,42 @@
+{
+    "files":[
+        {
+            "path": "sample/PDF_Demo_File.pdf",
+            "name": "Sample.pdf",
+            "icon": "pdficon"
+           
+        },
+        {
+            "path": "/sample/Word_Demo_File.docm",
+            "name": "Sample.docx",
+            "icon": "wordicon"
+           
+        },
+        {
+            "path": "sample/PowerPoint_Demo_File.ppt",
+            "name": "Sample.pptx",
+            "icon": "ppticon"
+           
+        }
+        ,
+        {
+            "path": "sample/Excel_Demo_File.xls",
+            "name": "Sample.xlsx",
+            "icon": "xlxsicon"
+           
+        },
+        {
+            "path": "sample/Excel_Demo_File.xls",
+            "name": "Sample.zip",
+            "icon": "samplezip"
+           
+        },
+        {
+            "path": "sample/Excel_Demo_File.xls",
+            "name": "Sample Folder",
+            "icon": "samplefolder"
+           
+        }
+    ]
+    
+}

@@ -26,7 +26,9 @@ ReactDOM.render(
 					<ToastProvider>
 						<AnalysticsState>
 							<MuiPickersUtilsProvider utils={DateFnsUtils}>
+							<React.StrictMode>
 								<App />
+								</React.StrictMode>
 							</MuiPickersUtilsProvider>
 						</AnalysticsState>
 					</ToastProvider>

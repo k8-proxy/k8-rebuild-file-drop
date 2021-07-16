@@ -1,0 +1,420 @@
+html,
+body {
+  scroll-behavior: smooth;
+}
+.containerWrap {
+  position: relative;
+}
+.Main_Main__3ic26 .Main_wrapMain__2WDFn {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.filedropLeft {
+  float: left;
+  width: 48%;
+  position: relative;
+  padding: 0px;
+}
+.filedropRight {
+  float: right;
+  width: 50%;
+  margin-right: 0px;
+  position: relative;
+  padding: 0px;
+}
+.stactic-banner {
+  height: auto;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  margin-bottom: 0px;
+}
+.stactic-banner .left-ban {
+  width: 100%;
+  padding: 80px 80px 80px 80px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background: rgb(102, 91, 160);
+  background: linear-gradient(to left, #564294 0%, #c22969 100%);
+  color: #fff;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 30px;
+  min-height: 80vh;
+  height: 599px;
+}
+.stactic-banner .left-ban h2 {
+  color: #fff;
+  font-size: 35px;
+  padding-right: 0px;
+  font-weight: bold;
+  line-height: 45px;
+  padding-bottom: 0px;
+}
+.banner-text {
+  margin: 20% 10% 0px 16%;
+}
+
+.MuiContainer-root.MuiContainer-maxWidthLg {
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+}
+.clear {
+  clear: both;
+}
+
+.loader-green {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #00bcd4;
+  border-radius: 50%;
+  width: 30px;
+  display: inline-block;
+  height: 30px;
+  animation: spin 2s linear infinite;
+  margin: -13px 0 0 0;
+  position: absolute;
+  left: 16px;
+  top: 26px;
+  z-index: 11;
+}
+.green .loader.hide {
+  display: none;
+}
+.green .loader.show {
+  display: block;
+}
+button#tryyourown {
+  background: transparent;
+  border: 0;
+  color: #4dd9ed;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 0 0 0 2px;
+  cursor: pointer;
+}
+div#alertBar {
+  position: fixed;
+  right: 0;
+  top: 170px;
+  z-index: 9999;
+}
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.alert-dismissable,
+.alert-dismissible {
+  padding-right: 35px;
+  padding-left: 55px;
+}
+.alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+.alert-dismissable .close,
+.alert-dismissible .close {
+  position: relative;
+  top: -2px;
+  right: -21px;
+  color: inherit;
+  float: right;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 0 1px 0 #fff;
+  filter: alpha(opacity=20);
+  opacity: 0.2;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.alert-danger strong {
+  display: inline-block;
+  background: #f44336;
+  padding: 13px 7px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 3px 0px 0px 3px;
+}
+
+.alert-danger img {
+  width: 30px;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+}
+p#errortext {
+  position: relative;
+  margin: -7px 0 -11px 0px !important;
+  line-height: 19px;
+}
+.mobile-text-cdr {
+  display: none;
+  font-weight: 400;
+}
+.desktop-text-cdr {
+  display: block;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 25px;
+}
+
+button.green-tick {
+  cursor: auto;
+}
+.bannerCloseButton {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  position: absolute;
+  cursor: pointer;
+  left: 30px;
+  top: 40px;
+}
+.left-arrow {
+  position: relative;
+  width: 16px;
+  display: block;
+  transform: rotate(180deg);
+}
+.your_className .left-ban .left-arrow {
+  transform: rotate(0);
+}
+.your_className .left-ban {
+  width: 10px;
+  padding: 20px;
+  position: absolute;
+  right: -27px;
+  font-size: 0;
+}
+.your_className .left-ban button.bannerCloseButton {
+  left: 8px;
+}
+.your_className .left-ban h2,
+.your_className .left-ban p {
+  display: none;
+}
+
+/*---------------responsive media query------------------*/
+@media only screen and (min-width: 1500px) and (max-width: 1919px) {
+  .stactic-banner .left-ban {
+    min-height: 100vh;
+    height: 100%;
+  }
+}
+@media only screen and (min-width: 2560px) and (max-width: 2640px) {
+  .stactic-banner .left-ban {
+    padding: 130px 280px 130px 280px;
+    min-height: 100vh;
+    height: 100%;
+  }
+  .stactic-banner .left-ban .white-inner {
+    margin-top: 50px;
+  }
+}
+@media only screen and (min-width: 1920px) and (max-width: 2200px) {
+  .stactic-banner .left-ban {
+    padding: 100px 180px 100px 180px;
+  }
+  .stactic-banner .left-ban {
+    min-height: 100vh;
+    height: 100%;
+  }
+}
+@media only screen and (min-width: 1281px) and (max-width: 1499px) {
+  .stactic-banner {
+    height: auto;
+    /* margin-bottom: 80px; */
+  }
+  .stactic-banner .left-ban {
+    padding: 30px;
+  }
+  .stactic-banner .left-ban h2 {
+    font-size: 35px;
+    padding-right: 50px;
+    line-height: 45px;
+  }
+  .stactic-banner .left-ban .white-inner {
+    margin-top: 40px;
+    padding: 20px 10px 30px;
+  }
+  .stactic-banner .left-ban .white-inner ul {
+    margin-left: -20px;
+  }
+  .stactic-banner .left-ban .white-inner ul li {
+    padding-left: 20px;
+    font-size: 15px;
+  }
+
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1280px) {
+  .stactic-banner {
+    height: auto;
+    margin-bottom: 0px;
+  }
+  .stactic-banner .left-ban {
+    padding: 100px 50px;
+    font-size: 17px;
+  }
+  .stactic-banner .left-ban .white-inner img {
+    max-width: 40px;
+    height: 44px !important;
+  }
+  .stactic-banner .left-ban h2 {
+    font-size: 35px;
+    padding-right: 0;
+    line-height: 45px;
+    padding-bottom: 20px;
+  }
+  .stactic-banner .left-ban .white-inner {
+    margin-top: 40px;
+    padding: 20px 10px 30px;
+  }
+  .stactic-banner .left-ban .white-inner ul {
+    margin-left: -20px;
+  }
+  .stactic-banner .left-ban .white-inner ul li {
+    padding-left: 20px;
+    font-size: 15px;
+  }
+  .dropzone {
+    height: 300px;
+  }
+  .inputfile + label {
+    height: 300px;
+  }
+  .dropzone .dz-message {
+    height: 300px;
+    padding-top: 70px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .stactic-banner {
+    height: auto;
+    margin-bottom: 50px;
+  }
+  .stactic-banner .left-ban {
+    padding: 100px 50px;
+    font-size: 17px;
+    float: none;
+    width: 0%;
+  }
+  .stactic-banner .right-ban {
+    float: none;
+    width: 100%;
+  }
+  .stactic-banner .left-ban h2 {
+    font-size: 35px;
+    padding-right: 0;
+    line-height: 45px;
+    padding-bottom: 20px;
+  }
+  .stactic-banner .left-ban .white-inner {
+    margin-top: 40px;
+    padding: 20px 10px 30px;
+  }
+  .stactic-banner .left-ban .white-inner ul {
+    margin-left: -20px;
+  }
+  .stactic-banner .left-ban .white-inner ul li {
+    padding-left: 20px;
+    font-size: 15px;
+  }
+  .clean-section {
+    max-width: 100%;
+  }
+  .clean-section .two-btn button {
+    width: 44.2%;
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .stactic-banner {
+    height: auto;
+    margin-bottom: 0px;
+  }
+  .stactic-banner .left-ban {
+    padding: 80px 30px;
+    font-size: 17px;
+    float: none;
+    width: 100%;
+  }
+  .stactic-banner .right-ban {
+    float: none;
+    width: 100%;
+    padding: 40px 30px 0;
+  }
+  .stactic-banner .left-ban h2 {
+    font-size: 35px;
+    padding-right: 0;
+    line-height: 45px;
+    padding-bottom: 20px;
+  }
+  .stactic-banner .left-ban .white-inner {
+    margin-top: 40px;
+    padding: 20px 10px 30px;
+    display: none;
+  }
+  .stactic-banner .left-ban .white-inner ul {
+    margin-left: -20px;
+  }
+  .stactic-banner .left-ban .white-inner ul li {
+    padding-left: 20px;
+    font-size: 15px;
+  }
+  .stactic-banner .right-ban .file-text {
+    font-size: 0px;
+  }
+  .stactic-banner .right-ban .file-text span {
+    position: relative;
+    left: -45px;
+    font-size: 20px;
+    text-transform: capitalize;
+  }
+
+  .stactic-banner .right-ban .file-text span::after {
+    position: absolute;
+    position: absolute;
+    content: "for a file";
+    font-size: 20px;
+    top: 3px;
+    width: 99px;
+    left: 68px;
+    text-transform: none;
+    color: #295c8b;
+  }
+  .mobile-text-cdr {
+    display: block;
+  }
+  .desktop-text-cdr {
+    display: none;
+  }
+  #_dragsection {
+    height: auto !important;
+  }
+}
+@media screen and (max-width: 480px) {
+  .stactic-banner .left-ban .white-inner {
+    margin-top: 40px;
+    padding: 20px 20px 30px;
+  }
+  .stactic-banner .left-ban .white-inner ul {
+    margin-left: 0;
+  }
+  .stactic-banner .left-ban .white-inner ul li {
+    padding-left: 0;
+    width: 100%;
+    display: block;
+    margin-bottom: 15px;
+  }
+  .stactic-banner .left-ban .white-inner ul li:last-child {
+    margin-bottom: 0;
+  }
+}

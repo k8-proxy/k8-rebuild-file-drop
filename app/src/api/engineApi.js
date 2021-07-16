@@ -1,13 +1,16 @@
+import axios from "axios";
+
 import ResponseError from './ResponseError';
 
-const analysisSuffix = '/api/Analyse/base64';
+const analysisSuffix = '/api/analyse/base64';
 const rebuildSuffix = '/api/Rebuild/base64';
+const versionSuffix = '/api/detail/version';
 
-const analyseFile = (file) => {
+const analyseFile = (file, uploadProgress) => {
     return readFileBase64Async(file).then(base64 => {
         const raw = JSON.stringify({ "Base64": base64 });
         const url = process.env.REACT_APP_ANALYSE_API_ENDPOINT + analysisSuffix;
-        return callFileAnalysis(url, raw);
+        return callFileAnalysis(url, raw, uploadProgress);
     });
 }
 
@@ -30,19 +33,22 @@ const readFileBase64Async = (file) => {
     });
 }
 
-const callFileAnalysis = (url, raw) => {
+const callFileAnalysis = (url, raw, callback) => {
+    console.log("callFileAnalysis" + callback)
     const promise = new Promise((resolve, reject) => {
-        resolve(fetch(url, {
-            method: 'POST',
-            body: raw,
+        resolve(axios({
+            url: url,
             headers: {
                 "x-api-key": process.env.REACT_APP_ANALYSE_API_KEY,
                 "Content-Type": "application/json",
             },
-        })
+            data: raw,
+            method: 'post',
+            onUploadProgress: callback
+          })
         .then((response) => {
-            if ( response.ok ) {
-                return response.text()
+            if ( response.status === 200 ) {
+                return response.data;
             } else {
                 throw harvestErrorMessage(response);
             }
@@ -51,6 +57,7 @@ const callFileAnalysis = (url, raw) => {
 
     return promise;
 }
+
 
 const callFileProtect = (url, data) => {
     const promise = new Promise((resolve, reject) => {
@@ -85,13 +92,25 @@ const callFileProtect = (url, data) => {
     return promise;
 }
 
+const callSDKVersions=async ()=>{
+    const url = process.env.REACT_APP_REBUILD_API_ENDPOINT + versionSuffix;
+        const response = await axios({
+            method: 'get',
+            url: url,
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        return response;
+}
+
 function harvestErrorMessage(response) {
     return new ResponseError(`Unexpected API call failure`, response);
-    // return new ResponseError(`Unexpected error happens${message ? `: "${message}"` : ''}, please call support`);
 }
 
 
 export const engineApi = {
     analyseFile,
     protectFile,
+    callSDKVersions
 };

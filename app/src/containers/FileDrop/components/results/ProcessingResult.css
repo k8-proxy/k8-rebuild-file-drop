@@ -1,0 +1,317 @@
+.cleansection {
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 98%;
+  z-index: 1;
+  background: #fff;
+}
+.cleansection.show {
+  display: block;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.clean-section {
+  max-width: 692px;
+  margin: 0px auto;
+}
+.clean-section h2 {
+  text-align: center;
+  padding-bottom: 30px;
+  padding-top: 40px;
+  font-weight: 600;
+  font-size: 36px;
+}
+.clean-section .two-btn {
+  margin-bottom: 50px;
+  margin-left: -33px;
+}
+.clean-section .two-btn button {
+  display: inline-block;
+  text-transform: uppercase;
+  width: 48%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding: 14px 12px;
+  background-color: #f7f9fc;
+  color: #295c8b;
+  text-align: center;
+  font-size: 14.5px;
+  margin-left: 32px;
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+}
+.clean-section .two-btn button.green {
+  background-color: #0db091;
+  color: #fff;
+  position: relative;
+}
+.clean-section .two-btn button.pink {
+  background-color: #c22969;
+  color: #fff;
+}
+.file-img {
+  float: left;
+  width: 100px;
+}
+.file-img img {
+  width: 100%;
+  display: block;
+}
+.inner-grabox.processing-result ul {
+  float: left;
+  width: 50%;
+  padding: 20px 15px !important;
+}
+.inner-grabox.processing-result ul li {
+  line-height: 5px;
+}
+img.tick-li {
+  width: 15px;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+  margin: 0 14px 0 0;
+}
+.inner-grabox.processing-result .inner-grabox ul li,
+.inner-grabox.processing-result ul#_remedyItems li {
+  line-height: 20px;
+  display: flex;
+}
+.cleansection.processing_result{
+  width: 100%;
+}
+.inner-grabox.processing-result .inner-grabox ul li img,
+.inner-grabox.processing-result ul#_remedyItems li img{
+  height: 15px;
+  align-self: flex-start;
+}
+.inner-grabox.processing-result ul#_remedyItems li span {
+  line-height: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+}
+.inner-grabox.processing-result .two-btn {
+  float: right;
+  width: 40%;
+  margin: 0 !important;
+  padding-top: 15px;
+}
+.inner-grabox.processing-result .two-btn button {
+  width: 100%;
+  margin: 0 0 5px;
+  font-size: 12px;
+  padding: 15px 10px;
+}
+.inner-grabox.processing-result .two-btn button.green {
+  border: 1px solid #0db091;
+  display: flex;
+}
+.inner-grabox.processing-result .two-btn button:last-child {
+  border: 1px solid #ddd;
+  display: flex;
+}
+.inner-grabox.processing-result .inner-grabox ul#_sanitisedItems li span {
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+}
+.clean-section .inner-grabox ul li .left-inner span.file_label {
+  font-size: 15px;
+  margin-right: 10px;
+  color: #11497c;
+  width: 50%;
+  margin-top: 7px;
+}
+.clean-section .inner-grabox ul li .left-inner span.file_name {
+  font-size: 15px;
+  word-break: break-all;
+  line-height: 20px;
+  color: #11497c;
+  width: 70%;
+}
+.mp-padding {
+  padding: 0 15px;
+  margin-bottom: 25px;
+}
+.inner-grabox.processing-result .inner-grabox {
+  padding: 0 0px;
+  width: 95%;
+  margin: 0 auto 20px;
+}
+.inner-grabox.processing-result .inner-grabox ul {
+  min-height: 100px;
+  width: 100%;
+  float: none;
+  height: 100px;
+  overflow-y: auto;
+  padding-bottom: 20px;
+  padding-top: 10px !important;
+}
+div#cleanRebuildFiles .cleanRebuilddiv ul {
+  min-height: 410px;
+  width: 100%;
+  float: none;
+  height: 410px;
+  overflow-y: auto;
+}
+div#cleanRebuildFiles {
+  border: 2px solid #eff0f3;
+  margin-bottom: 19px;
+  border-radius: 10px;
+  right: 10px;
+}
+img.unprocessedImg {
+  display: inline-block;
+  width: 40px;
+  vertical-align: middle;
+  margin: 0 9px 0 0;
+}
+.rebiuldTable {
+  margin: 0 0 20px;
+}
+.unprocessedFiles {
+  position: relative;
+  margin-top: 30px;
+}
+.unprocessedFiles h3 {
+  background: transparent !important;
+  margin: 0 0 10px 0;
+  padding: 0px 15px !important;
+}
+.unprocessedFiles h4 {
+  background: #f7f9fc;
+  padding: 12px 12px;
+  border: 2px solid #eff0f3;
+}
+button.root.undefined{
+  display: flex;
+}
+div#loader-protected{
+  margin-right: 5px;
+}
+#cleanRebuildFiles h3 {
+  background-color: #f7f9fc;
+  color: #11497c;
+  text-align: left;
+  text-transform: none;
+  padding: 15px 15px;
+  font-size: 16px;
+  margin-top: 0;
+  font-weight: 400;
+}
+button.closeResult {
+  position: absolute;
+  right: 13px;
+  top: -2px;
+  -webkit-text-stroke: 1px #fefefe;
+  border: 0;
+  background: transparent;
+  font-size: 36px;
+  color: #607d8b;
+  cursor: pointer;
+}
+button.closeResult img {
+  width: 16px;
+}
+.clean-section .inner-grabox {
+  border: 2px solid #eff0f3;
+  margin-bottom: 19px;
+  border-radius: 10px;
+}
+div#cleanSection .mp-padding {
+  display: flex;
+}
+.clean-section .inner-grabox h3 {
+  background-color: #f7f9fc;
+  color: #11497c;
+  text-align: center;
+  padding: 15px 0px;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 0;
+}
+.inner-grabox.processing-result h3 {
+  text-align: left;
+  padding-left: 15px;
+}
+.clean-section .inner-grabox ul {
+  padding: 19px 30px 17px;
+  list-style: none;
+}
+.clean-section .inner-grabox ul li {
+  font-size: 16px;
+  padding-bottom: 5px;
+}
+.clean-section .inner-grabox ul li:last-child {
+  padding-bottom: 0;
+}
+.clean-section .inner-grabox ul li .left-inner {
+  display: flex;
+}
+.clean-section .inner-grabox ul li .right-inner {
+  width: calc(100% - 220px);
+  width: -moz-calc(100% - 220px);
+  width: -webkit-calc(100% - 220px);
+  display: inline-block;
+}
+.clean-section .two-btn.lastbtns {
+  padding: 20px 30px 20px;
+  margin: 0;
+  text-align: center;
+  background-color: #f7f9fc;
+}
+.clean-section .two-btn.lastbtns button {
+  margin-left: 10px;
+  border: 2px solid #eff0f3;
+  cursor: pointer;
+}
+.clean-section .two-btn.lastbtns button:first-child {
+  background: #fff;
+}
+.clean-section {
+  max-width: 100%;
+}
+.clean-section .two-btn button {
+  width: 100%;
+  margin-left: 0;
+  margin-bottom: 15px;
+  padding: 16px 19px;
+}
+.clean-section h2 {
+  font-size: 30px;
+  padding-bottom: 40px;
+}
+.clean-section .two-btn {
+  margin-left: 0;
+  margin-bottom: 30px;
+}
+
+.clean-section .two-btn.lastbtns button {
+  font-size: 13px;
+  margin-bottom: 0px;
+  padding: 13px 10px;
+  margin-left: 8px;
+  width: 48%;
+}
+.clean-section .inner-grabox ul li .left-inner {
+  width: 100%;
+}
+.clean-section .inner-grabox ul li .right-inner {
+  width: calc(100% - 106px);
+  width: -moz-calc(100% - 106px);
+  width: -webkit-calc(100% - 106px);
+}
+.clean-section .inner-grabox ul li {
+  padding-bottom: 0px;
+}
+.clean-section .inner-grabox h3 {
+  padding: 15px 10px;
+  font-size: 17px;
+}
+.cleansection.show {
+  padding-top: 0;
+}

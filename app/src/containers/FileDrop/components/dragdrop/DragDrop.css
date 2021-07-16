@@ -1,0 +1,32 @@
+.stactic-banner .right-ban {
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding: 0px 0px 0;
+}
+.file-upload {
+  position: relative;
+  margin: 0 0px;
+}
+.dropzone {
+  min-height: 450px;
+  background: none;
+  border-radius: 15px;
+  padding: 0px 0px;
+}
+div#dropzone-file {
+  position: relative;
+  height: auto;
+}
+.dropzone .dz-message {
+  text-align: center;
+  margin: 0 0;
+  height: 280px;
+  padding: 60px 0;
+  border-radius: 15px;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  /* background: #ffffff; */
+}

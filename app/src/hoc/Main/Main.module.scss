@@ -1,5 +1,6 @@
 .Main {
 	overflow: hidden;
+	
 
 	.wrapMain {
 		position: absolute;
@@ -58,5 +59,6 @@
 		//border-radius: 0.6rem;
 
 		overflow: hidden;
+		overflow-y: auto;
 	}
 }
