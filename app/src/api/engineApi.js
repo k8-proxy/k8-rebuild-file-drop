@@ -33,31 +33,6 @@ const readFileBase64Async = (file) => {
     });
 }
 
-// const callFileAnalysis = (url, raw, callback) => {
-//     console.log("callFileAnalysis" + callback)
-//     const promise = new Promise((resolve, reject) => {
-//         resolve(fetch(url, {
-//             method: 'POST',
-//             body: raw,
-//             headers: {
-//                 "x-api-key": process.env.REACT_APP_ANALYSE_API_KEY,
-//                 "Content-Type": "application/json",
-//             },
-//             onUploadProgress: callback
-//         })
-//         .then((response) => {
-//             if ( response.ok ) {
-//                 return response.text()
-//             } else {
-//                 throw harvestErrorMessage(response);
-//             }
-//         }));
-//     });
-
-//     return promise;
-// }
-
-
 const callFileAnalysis = (url, raw, callback) => {
     console.log("callFileAnalysis" + callback)
     const promise = new Promise((resolve, reject) => {
@@ -71,14 +46,6 @@ const callFileAnalysis = (url, raw, callback) => {
             method: 'post',
             onUploadProgress: callback
           })
-        //   (url, {
-        //     method: 'post',
-        //     body: raw,
-        //     headers: {
-              
-        //     },
-            
-        // })
         .then((response) => {
             if ( response.status === 200 ) {
                 return response.data;
@@ -139,7 +106,6 @@ const callSDKVersions=async ()=>{
 
 function harvestErrorMessage(response) {
     return new ResponseError(`Unexpected API call failure`, response);
-    // return new ResponseError(`Unexpected error happens${message ? `: "${message}"` : ''}, please call support`);
 }
 
 

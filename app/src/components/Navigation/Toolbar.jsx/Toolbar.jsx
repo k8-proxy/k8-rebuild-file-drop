@@ -82,7 +82,9 @@ const Toolbar = ({ expanded, navExpandedHandler }) => {
 				setExpandData(result.data)
 			}
 			console.log("VEreiosnresult " + result)
-	}).catch(err=>{})
+	}).catch(err=>{
+		 // This is intentional
+	})
   }, [])
 
 

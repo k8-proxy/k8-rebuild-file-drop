@@ -9,15 +9,8 @@ import Samplefiles  from "../../../../data/fileDrop/samplefiles.json";
 import SampleFile   from "./SampleFile";
 import                   "./DragableFile.css";
 
-import { FileDropContext }    from "../../../../context/fileDrop/fileDrop-context";
-import { isPropertySignature } from "typescript";
 
 export default function DragableFile(props) {
-
-  const {
-	  setLocalFilePath,
-    filePath
-	} = useContext(FileDropContext);
 
   const triggerFileInput=(event) =>{
     document.getElementById('file-1').click();

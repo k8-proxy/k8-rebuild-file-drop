@@ -5,8 +5,6 @@ import { usePromiseTracker }        from "react-promise-tracker";
 
 
 import { engineApi, ResponseError } from "../../../../api";
-import supporting                   from "../../../../data/fileDrop/supportedFileTypes.json";
-import { FileDropContext }          from "../../../../context/fileDrop/fileDrop-context";
 import messages                     from "../../../../data/fileDrop/messages.json";
 import DragableFile                 from '../Dragablefile/DragableFile';
 import ProgressBar                  from '../Progressbar/ProgressBar';
@@ -17,10 +15,7 @@ const XMLParser = require("react-xml-parser");
 const TOTAL_FILE_LIMIT_MB = 50;
 
 export default function FileDropzone(props) {
-  const {
-	  filePath
-	} = useContext(FileDropContext);
-
+ 
   const { promiseInProgress } = usePromiseTracker({ delay: 100 });
   const { addToast } = useToasts();
   const [status, setStatus] = useState(false);
@@ -28,9 +23,7 @@ export default function FileDropzone(props) {
   const dropRef = useRef();
 
  
-
   useEffect(() => { 
-    console.log("useEffect" + dropRef.current);
     let div = dropRef.current
     div.addEventListener('dragenter', handleDragIn)
     div.addEventListener('dragleave', handleDragOut)
@@ -57,7 +50,6 @@ export default function FileDropzone(props) {
     const size_of_file = file.size / 1000000;
     return size_of_file;
   };
-
 
   const analyseFile = (accepted) => {
     trackPromise(
@@ -151,8 +143,6 @@ export default function FileDropzone(props) {
       analyseFile(file);
       event.dataTransfer.value = "";
     } 
-
-   
   };
 
   const handleDrag = (e) => {e.preventDefault()

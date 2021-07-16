@@ -13,7 +13,6 @@ export default function RebuildTable(props){
   const[showLaoder, SetShowLoader] = useState(false)
    
   const getProtectedFile = (file) => {
-    // debugger;
     SetShowLoader(true);
       engineApi
         .protectFile(file)
@@ -26,7 +25,6 @@ export default function RebuildTable(props){
           SetShowLoader(false);
         })
         .catch((error) => {
-          // debugger;
           console.log(error.message);
           SetShowLoader(false);
         })
