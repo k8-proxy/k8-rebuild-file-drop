@@ -1,4 +1,4 @@
-import React        from "react";
+import React, {useContext}        from "react";
 import pdficon      from "../../../../assets/pdf-icon.png";
 import xlxsicon     from "../../../../assets/excel-icon.png";
 import wordicon     from "../../../../assets/word-icon.png";
@@ -10,7 +10,7 @@ import SampleFile   from "./SampleFile";
 import                   "./DragableFile.css";
 
 
-export default function DragableFile() {
+export default function DragableFile(props) {
 
   const triggerFileInput=(event) =>{
     document.getElementById('file-1').click();
@@ -28,6 +28,11 @@ export default function DragableFile() {
 
     }
   }
+  const setSampleFile =(link) =>{
+    props.setSampleFile(link)
+    
+  }
+
   return (
     <>
       <div className="white-inner">
@@ -36,8 +41,10 @@ export default function DragableFile() {
           <button id="tryyourown" onClick={triggerFileInput} >try your own</button>
         </p>
         <ul>
-        {Samplefiles.files.map(file=>{
+        {Samplefiles.files.map((file, index)=>{
           return  <SampleFile
+                  index={index}
+                  setSampleFile ={setSampleFile}
                   link={file.path}
                   text={file.name}
                   imgsrc={fileIcon(file.icon)}

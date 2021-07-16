@@ -62,7 +62,7 @@
 }
 .inner-grabox.processing-result ul {
   float: left;
-  width: 40%;
+  width: 50%;
   padding: 20px 15px !important;
 }
 .inner-grabox.processing-result ul li {
@@ -75,8 +75,18 @@ img.tick-li {
   top: -1px;
   margin: 0 14px 0 0;
 }
+.inner-grabox.processing-result .inner-grabox ul li,
 .inner-grabox.processing-result ul#_remedyItems li {
   line-height: 20px;
+  display: flex;
+}
+.cleansection.processing_result{
+  width: 100%;
+}
+.inner-grabox.processing-result .inner-grabox ul li img,
+.inner-grabox.processing-result ul#_remedyItems li img{
+  height: 15px;
+  align-self: flex-start;
 }
 .inner-grabox.processing-result ul#_remedyItems li span {
   line-height: 20px;
@@ -98,9 +108,11 @@ img.tick-li {
 }
 .inner-grabox.processing-result .two-btn button.green {
   border: 1px solid #0db091;
+  display: flex;
 }
 .inner-grabox.processing-result .two-btn button:last-child {
   border: 1px solid #ddd;
+  display: flex;
 }
 .inner-grabox.processing-result .inner-grabox ul#_sanitisedItems li span {
   font-size: 14px;
@@ -108,15 +120,18 @@ img.tick-li {
   color: #000;
 }
 .clean-section .inner-grabox ul li .left-inner span.file_label {
-  font-size: 13px;
+  font-size: 15px;
   margin-right: 10px;
   color: #11497c;
+  width: 50%;
+  margin-top: 7px;
 }
 .clean-section .inner-grabox ul li .left-inner span.file_name {
-  font-size: 13px;
+  font-size: 15px;
   word-break: break-all;
-  line-height: 17px;
+  line-height: 20px;
   color: #11497c;
+  width: 70%;
 }
 .mp-padding {
   padding: 0 15px;
@@ -171,6 +186,12 @@ img.unprocessedImg {
   background: #f7f9fc;
   padding: 12px 12px;
   border: 2px solid #eff0f3;
+}
+button.root.undefined{
+  display: flex;
+}
+div#loader-protected{
+  margin-right: 5px;
 }
 #cleanRebuildFiles h3 {
   background-color: #f7f9fc;
@@ -229,10 +250,7 @@ div#cleanSection .mp-padding {
   padding-bottom: 0;
 }
 .clean-section .inner-grabox ul li .left-inner {
-  width: 100%;
-
-  display: block;
-  text-transform: capitalize;
+  display: flex;
 }
 .clean-section .inner-grabox ul li .right-inner {
   width: calc(100% - 220px);

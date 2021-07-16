@@ -15,6 +15,7 @@ export const FileDropState = ({ children }) => {
 		fileProcessed: false,
 		loading: false,
 		feedback: {},
+		filePath: "anish"
 	};
 
 	const [fileDropState, dispatch] = useReducer(fileDropReducer, initialState);
@@ -25,6 +26,10 @@ export const FileDropState = ({ children }) => {
 
 	const resetState = () => {
 		dispatch({ type: actionTypes.RESET_STATE });
+	};
+
+	const setLocalFilePath = (result) => {
+		dispatch({ type: actionTypes.SET_LOCAL_FILE_PATH, result });
 	};
 
 	return (
@@ -40,6 +45,10 @@ export const FileDropState = ({ children }) => {
 				feedback: fileDropState.feedback,
 				setResultFromServer,
 				resetState,
+				setLocalFilePath,
+				filePath: fileDropState.filePath,
+				
+				
 			}}
 		>
 			{children}

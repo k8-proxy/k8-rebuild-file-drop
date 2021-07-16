@@ -8,6 +8,7 @@ const setResultFromServer = (state, result) => {
 		analysisReportString: result.analysisReportString,
 		file: result.file,
 		fileProcessed: result.fileProcessed,
+		filePath: null
 	});
 };
 
@@ -21,8 +22,15 @@ const resetState = (state) => {
 		fileProcessed: false,
 		loading: false,
 		feedback: {},
+		filePath: null
 	});
 };
+
+const setLocalFilePath = (state, path)=>{
+	return updateObject(state, {
+		filePath: path
+	});
+}
 
 export const fileDropReducer = (state, action) => {
 	switch (action.type) {
@@ -30,6 +38,8 @@ export const fileDropReducer = (state, action) => {
 			return setResultFromServer(state, action.result);
 		case actionTypes.RESET_STATE:
 			return resetState(state);
+		case actionTypes.SET_LOCAL_FILE_PATH:
+			return setLocalFilePath(state, action.result);
 		default:
 			return state;
 	}

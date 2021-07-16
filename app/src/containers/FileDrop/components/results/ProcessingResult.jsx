@@ -1,10 +1,10 @@
 import React            from "react";
 import fileimg          from "../../../../assets/icon-certificate.png";
-import ButtonComponent  from "../../button/Button";
+import ButtonComponent  from "../Button/Button/Button";
 import cancelIcon       from "../../../../assets/cross.svg";
 import tick             from "../../../../assets/tick.png";
 import { engineApi }    from "../../../../api";
-import { trackPromise } from "react-promise-tracker";
+
 import                       "./ProcessingResult.css";
 import { useState } from "react";
 
@@ -47,7 +47,6 @@ export default function ProcessingResult({
   const getProtectedFile = () => {
     // debugger;
     SetShowLoader(true);
-    trackPromise(
       engineApi
         .protectFile(file)
         .then((blob) => {
@@ -63,7 +62,7 @@ export default function ProcessingResult({
           console.log(error.message);
           SetShowLoader(false);
         })
-    );
+  
   };
 
   const getItems = (list) => {
@@ -102,7 +101,7 @@ export default function ProcessingResult({
 
     return (
       <>
-        <div id="cleanSection" className="cleansection">
+        <div id="cleanSection" className="cleansection processing_result">
           <div className="container">
             <div className="clean-section">
               <div className="inner-grabox processing-result">

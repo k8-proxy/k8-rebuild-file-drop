@@ -1,14 +1,13 @@
-import React, {useState, useEffect, useRef}                        from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { trackPromise }             from "react-promise-tracker";
 import { useToasts }                from "react-toast-notifications";
-import { usePromiseTracker }  from "react-promise-tracker";
+import { usePromiseTracker }        from "react-promise-tracker";
 
-// import { validFileType } from "../../actions";
+
 import { engineApi, ResponseError } from "../../../../api";
-import supporting                   from "../../../../data/fileDrop/supportedFileTypes.json";
 import messages                     from "../../../../data/fileDrop/messages.json";
-import DragableFile                 from '../dragablefile/DragableFile';
-import ProgressBar                 from '../progressbar/ProgressBar';
+import DragableFile                 from '../Dragablefile/DragableFile';
+import ProgressBar                  from '../Progressbar/ProgressBar';
 import                                   './FileDropZone.css';
 const XMLParser = require("react-xml-parser");
 
@@ -16,16 +15,15 @@ const XMLParser = require("react-xml-parser");
 const TOTAL_FILE_LIMIT_MB = 50;
 
 export default function FileDropzone(props) {
+ 
   const { promiseInProgress } = usePromiseTracker({ delay: 100 });
   const { addToast } = useToasts();
   const [status, setStatus] = useState(false);
+  const [sampleFilePath, setSampleFilePath] = useState(null);
   const dropRef = useRef();
 
  
-
-
   useEffect(() => { 
-    console.log("useEffect" + dropRef.current);
     let div = dropRef.current
     div.addEventListener('dragenter', handleDragIn)
     div.addEventListener('dragleave', handleDragOut)
@@ -35,28 +33,33 @@ export default function FileDropzone(props) {
     
   }, []) 
 
-  
+
+  useEffect(()=>{
+      if(!sampleFilePath) return;
+      var url  = window.location.href + sampleFilePath;
+      fetch(url)
+      .then( res => res.blob() )
+      .then( blob => {
+      var file = new File([blob],  url.split('/').pop())
+      props.dropAnotherFile();
+      analyseFile(file)
+      });
+  },[sampleFilePath])
 
   const getFileSizeInMB = (file) => {
     const size_of_file = file.size / 1000000;
     return size_of_file;
   };
 
-  const fileSize = (size) => {
-    if (size === 0) return '0 Bytes';
-    const k = 1024;
-    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-    const i = Math.floor(Math.log(size) / Math.log(k));
-    return parseFloat((size / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-}
-const fileType = (fileName) => {
-  return fileName.substring(fileName.lastIndexOf('.') + 1, fileName.length) || fileName;
-}
-
   const analyseFile = (accepted) => {
     trackPromise(
       engineApi
-        .analyseFile(accepted)
+        .analyseFile(accepted,(event) => {
+          var percentage = Math.round(
+            (100 * event.loaded) / event.total
+          );
+          props.setProgressInfo(percentage);
+        })
         .then((result) => {
           const xml = new XMLParser().parseFromString(result);
           setStatus(true);
@@ -134,19 +137,12 @@ const fileType = (fileName) => {
 
       //Files smaller than 6MB - Normal
       if (getFileSizeInMB(file) > TOTAL_FILE_LIMIT_MB) {
-        //resetRebuild(true);
-        //displayError("File too big. File upto 15 MB is supported");
         return;
       }
-      //displayRebuildUI();
       props.dropAnotherFile();
       analyseFile(file);
       event.dataTransfer.value = "";
-    } else {
-      var url = event.originalEvent.dataTransfer.getData("url");
-      //downloadFile(url);
-    }
-   
+    } 
   };
 
   const handleDrag = (e) => {e.preventDefault()
@@ -157,9 +153,12 @@ const fileType = (fileName) => {
     e.stopPropagation()}
 
 
+  const sampleFileHandler =(link)=>{
+    setSampleFilePath(link);
+  }
   return (
     <>
-      <div id="dropzone-file"  ref = {dropRef}>
+      <div id="dropzone-file" ref={dropRef}>
         <div id="_dragsection" className="dz-default dz-message">
           <div className="img-pnl"></div>
           <div className="file-text">
@@ -180,8 +179,14 @@ const fileType = (fileName) => {
         />
         <label id="inputFileLabel" for="file-1"></label>
       </div>
-      {(promiseInProgress || props.results.length > 0) && <ProgressBar status={promiseInProgress} />}
-      <DragableFile />
+      {(promiseInProgress || props.results.length > 0) && (
+        <ProgressBar
+          rebuildStartTime={props.rebuildStartTime}
+          status={promiseInProgress}
+          value={props.progressInfo}
+        />
+      )}
+      <DragableFile setSampleFile={sampleFileHandler} />
     </>
   );
 }
