@@ -4,6 +4,7 @@ import ResponseError from './ResponseError';
 
 const analysisSuffix = '/api/analyse/base64';
 const rebuildSuffix = '/api/Rebuild/base64';
+const versionSuffix = '/api/detail/version';
 
 const analyseFile = (file, uploadProgress) => {
     return readFileBase64Async(file).then(base64 => {
@@ -124,6 +125,18 @@ const callFileProtect = (url, data) => {
     return promise;
 }
 
+const callSDKVersions=async ()=>{
+    const url = process.env.REACT_APP_REBUILD_API_ENDPOINT + versionSuffix;
+        const response = await axios({
+            method: 'get',
+            url: url,
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        return response;
+}
+
 function harvestErrorMessage(response) {
     return new ResponseError(`Unexpected API call failure`, response);
     // return new ResponseError(`Unexpected error happens${message ? `: "${message}"` : ''}, please call support`);
@@ -133,4 +146,5 @@ function harvestErrorMessage(response) {
 export const engineApi = {
     analyseFile,
     protectFile,
+    callSDKVersions
 };

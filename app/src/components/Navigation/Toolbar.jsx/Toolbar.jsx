@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 // import { CSSTransition } from "react-transition-group";
 
 import classes from "./Toolbar.module.scss";
@@ -20,6 +20,8 @@ import fileDoropIcon from "../../../assets/menu-icons/icon-web-drop.png";
 // import logoutIcon from "../../../assets/svg/account-icons/logout-icon.svg";
 // import changePassIcon from "../../../assets/svg/account-icons/change-password-icon.svg";
 import ChangePassword from "../../ChangePassword/ChangePassword";
+import { engineApi } from "../../../api";
+import User from "../../../containers/Users/User/User";
 
 const navLinks = [
   /*
@@ -58,7 +60,7 @@ const navLinks = [
 ];
 
 const Toolbar = ({ expanded, navExpandedHandler }) => {
-  // const [setIsOpenPopup] = useState(false);
+  const [data, setExpandData] = useState(null);
   const {
     // logout,
     isChangePass,
@@ -72,6 +74,18 @@ const Toolbar = ({ expanded, navExpandedHandler }) => {
     cls.push(classes.expanded);
     // clsNav.push(classes.expanded);
   }
+
+  useEffect(()=>{
+	engineApi.callSDKVersions().then(result=>{
+			if(result.status === 200){
+				
+				setExpandData(result.data)
+			}
+			console.log("VEreiosnresult " + result)
+	}).catch(err=>{})
+  }, [])
+
+
 
   /*
 	const accountLinks = [
@@ -109,7 +123,7 @@ const Toolbar = ({ expanded, navExpandedHandler }) => {
 					// closePopup={() => setIsOpenPopup(false)}
 					externalStyles={classes.user}
 				/> */}
-        <ExpandButton expanded={expanded} clickHandler={navExpandedHandler} />
+        <ExpandButton data={data} expanded={expanded} clickHandler={navExpandedHandler} />
       </section>
 
       {/*

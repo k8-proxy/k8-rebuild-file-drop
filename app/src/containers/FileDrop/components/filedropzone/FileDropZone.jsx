@@ -53,6 +53,12 @@ export default function FileDropzone(props) {
       });
   },[sampleFilePath])
 
+  const getFileSizeInMB = (file) => {
+    const size_of_file = file.size / 1000000;
+    return size_of_file;
+  };
+
+
   const analyseFile = (accepted) => {
     trackPromise(
       engineApi
@@ -73,6 +79,7 @@ export default function FileDropzone(props) {
           });
         })
         .catch((error) => {
+          // console.warn(` ----------- Caught of File Drop ${new Date().toISOString()} -------------`);
           if (error instanceof ResponseError) {
             const {
               response: { type, status },
@@ -135,6 +142,8 @@ export default function FileDropzone(props) {
       event.dataTransfer.types.length == 1
     ) {
       var file = event.dataTransfer.files[0]; //_("file-1").files[0];
+
+      //Files smaller than 6MB - Normal
       if (getFileSizeInMB(file) > TOTAL_FILE_LIMIT_MB) {
         return;
       }
